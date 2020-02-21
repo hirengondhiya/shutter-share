@@ -27,16 +27,19 @@ Completed as Term 2 Ruby on Rails assessment at [Coder Academy's](https://codera
 <!-- R7	Identification of the problem you are trying to solve by building this particular marketplace app. -->
 <!-- R8	Why is it a problem that needs solving? -->
 
-## Problem Statement ([Back to Table of Contents](#table-of-contents))
+ ([Back to Table of Contents](#table-of-contents))
+## Problem Statement
 
 - What
 
 - Why
 
+ ([Back to Table of Contents](#table-of-contents))
+
 <!-- R9	A link (URL) to your deployed app (i.e. website)
 R10	A link to your GitHub repository (repo). -->
 
-## Important Links ([Back to Table of Contents](#table-of-contents))
+## Important Links
 
 - Project: https://shareyourgear.herokuapp.com/
 
@@ -49,51 +52,66 @@ R10	A link to your GitHub repository (repo). -->
 - Screenshots
 - Target audience
 - Tech stack (e.g. html, css, deployment platform, etc) -->
+ ([Back to Table of Contents](#table-of-contents))
 
-## Description  ([Back to Table of Contents](#table-of-contents))
+## Description
     
-- ### Purpose  ([Back to Table of Contents](#table-of-contents))
-- ### Features  ([Back to Table of Contents](#table-of-contents))
-- ### Sitemap  ([Back to Table of Contents](#table-of-contents))
-- ### Screenshots  ([Back to Table of Contents](#table-of-contents))
-- ### Target Audience  ([Back to Table of Contents](#table-of-contents))
-- ### Tech stack  ([Back to Table of Contents](#table-of-contents))
+- ### Purpose
+- ### Features
+- ### Sitemap
+- ### Screenshots
+- ### Target Audience
+- ### Tech stack
 
-
+([Back to Table of Contents](#table-of-contents))
 <!-- R12	User stories for your app -->
 
-## User Stories  ([Back to Table of Contents](#table-of-contents))
+## User Stories
+
+ ([Back to Table of Contents](#table-of-contents))
 
 <!-- R13	Wireframes for your app -->
 
-## Wireframes  ([Back to Table of Contents](#table-of-contents))
+## Wireframes
+
+ ([Back to Table of Contents](#table-of-contents))
 
 <!-- R14	An ERD for your app -->
 
-## ERD Diagram  ([Back to Table of Contents](#table-of-contents))
+## ERD Diagram
+
+([Back to Table of Contents](#table-of-contents))
 
 <!-- R15	Explain the different high-level components (abstractions) in your app -->
 
-## Components  ([Back to Table of Contents](#table-of-contents))
+## Components
+
+([Back to Table of Contents](#table-of-contents))
 
 <!-- R16	Detail any third party services that your app will use -->
 
-## Third Party Services  ([Back to Table of Contents](#table-of-contents))
+## Third Party Services
+
+([Back to Table of Contents](#table-of-contents))
 
 <!-- R17	Describe your projects models in terms of the relationships (active record associations) they have with each 
 other -->
 
-## Models and Associations  ([Back to Table of Contents](#table-of-contents))
+## Models and Associations
 
-
+([Back to Table of Contents](#table-of-contents))
 <!-- R18	Discuss the database relations to be implemented in your application -->
 
-## Database Relations  ([Back to Table of Contents](#table-of-contents))
+## Database Relations
 
+([Back to Table of Contents](#table-of-contents))
 <!-- R19	Provide your database schema design -->
 
-## Database Schema  ([Back to Table of Contents](#table-of-contents))
+## Database Schema
 
+([Back to Table of Contents](#table-of-contents))
 <!-- R20	Describe the way tasks are allocated and tracked in your project -->
 
-## Project Management  ([Back to Table of Contents](#table-of-contents))
+## Project Management
+
+([Back to Table of Contents](#table-of-contents))
