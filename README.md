@@ -61,7 +61,17 @@ R10	A link to your GitHub repository (repo). -->
 - ### Sitemap
 - ### Screenshots
 - ### Target Audience
+    Target audience of this app is any photographer who would like to rent someone else's photo gear and/or rent out their own photography equipment. This way the person renting someone's equipment can avoic costs associated with owning the gear and the users renting out can have more value out of their investment. 
 - ### Tech stack
+    * Ruby on Rails
+    * HTML
+    * CSS
+    * SASS
+    * Bootstrap 4
+    * Bootstrap Studio
+    * Heroku
+    * Amazon S3
+    * 
 
 ([Back to Table of Contents](#table-of-contents))
 <!-- R12	User stories for your app -->
