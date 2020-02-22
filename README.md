@@ -1,4 +1,4 @@
-# ShareYourGear
+# ShutterShare
 
 Completed as Term 2 Ruby on Rails assessment at [Coder Academy's](https://coderacademy.edu.au/) GenTech 2019 Bootcamp.
 
@@ -32,6 +32,14 @@ Completed as Term 2 Ruby on Rails assessment at [Coder Academy's](https://codera
 
 - What
 
+    To get started with photography a photographer not only requires to have a decent camera but plethora of accessories and lenses. For example, a typical professional level photo shoot requires a good camera body, at least two to three fast aperature lenses, a couple of lights (strobes or speed lights), light modifiers, light stands etc... Therefore it would be very costly to own all the gear when someone starts with the photography. In another use case there are situations where a specific kind of lens is required ony for specific kind of photography genre and it's not very practical to buy a new lens for one off use.
+    
+    In the kind of situations described above it would be very convenient to be able to get rent someone else's equipment, use and return it when done.
+    
+    The biggest problem is that due to the niche involved there are very few places who rent out equipment and due to the lack of competition the demand drives the prices which does not work well for small time individual photographers.
+    
+    Therefore it would add a lot value by creating an online platform that would bring photography community together that can help each other by sharing the gear and make some extra money.
+
 - Why
 
  ([Back to Table of Contents](#table-of-contents))
@@ -61,7 +69,7 @@ R10	A link to your GitHub repository (repo). -->
 - ### Sitemap
 - ### Screenshots
 - ### Target Audience
-    Target audience of this app is any photographer who would like to rent someone else's photo gear and/or rent out their own photography equipment. This way the person renting someone's equipment can avoic costs associated with owning the gear and the users renting out can have more value out of their investment. 
+    Target audience of this app is any photographer who would like to rent someone else's photo gear and/or rent out their own photography equipment. This way the person renting someone's equipment can avoids costs associated with owning the gear that is not frequently used and the users renting out can have more value out of their investment. 
 - ### Tech stack
     * Ruby on Rails
     * HTML
