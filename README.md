@@ -5,7 +5,7 @@ Completed as Term 2 Ruby on Rails assessment at [Coder Academy's](https://codera
 ## Table of Contents
 * [Problem Statement](#problem-statement)
     - [What](#what)
-    - [Why](#why-(online?))
+    - [Why](#why)
 * [Important Links](#important-links)
 * [Description](#description)
     - [Purpose](#purpose)
@@ -40,7 +40,7 @@ Completed as Term 2 Ruby on Rails assessment at [Coder Academy's](https://codera
     
     Therefore it would add a lot value by creating an online platform that would bring photography community together that can help each other by sharing the gear and make some extra money.
 
-- Why (online?)
+- Why
     
     The platform needs to be online because in online space there are even less providers that encourages sharing the photography gear among the photographers. The options that exists are limited to specific camera brand, or are not two sided, or are mainly focused on big production houses or otherwise does not operate in Australia.
     
