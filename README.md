@@ -5,7 +5,7 @@ Completed as Term 2 Ruby on Rails assessment at [Coder Academy's](https://codera
 ## Table of Contents
 * [Problem Statement](#problem-statement)
     - [What](#what)
-    - [Why](#why)
+    - [Why](#why-(online?))
 * [Important Links](#important-links)
 * [Description](#description)
     - [Purpose](#purpose)
@@ -40,7 +40,11 @@ Completed as Term 2 Ruby on Rails assessment at [Coder Academy's](https://codera
     
     Therefore it would add a lot value by creating an online platform that would bring photography community together that can help each other by sharing the gear and make some extra money.
 
-- Why
+- Why (online?)
+    
+    The platform needs to be online because in online space there are even less providers that encourages sharing the photography gear among the photographers. The options that exists are limited to specific camera brand, or are not two sided, or are mainly focused on big production houses or otherwise does not operate in Australia.
+    
+    Therefore it is important have an online platform which is brand independent and caters to individual photographers within Australia. Moreover having an online platform gives scalability to bring photography community from different locations to come together and cater to each other's photographic equipment requirements.
 
  ([Back to Table of Contents](#table-of-contents))
 
@@ -49,9 +53,9 @@ R10	A link to your GitHub repository (repo). -->
 
 ## Important Links
 
-- Project: https://shareyourgear.herokuapp.com/
+- Project: https://shuttershare.herokuapp.com/
 
-- GitHub Repo: https://github.com/hirengondhiya/shareyourgear
+- GitHub Repo: https://github.com/hirengondhiya/shuttershare
 
 <!-- R11	Description of your marketplace app (website), including:
 - Purpose
