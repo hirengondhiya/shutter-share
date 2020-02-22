@@ -4,8 +4,6 @@ Completed as Term 2 Ruby on Rails assessment at [Coder Academy's](https://codera
 
 ## Table of Contents
 * [Problem Statement](#problem-statement)
-    - [What](#what)
-    - [Why](#why)
 * [Important Links](#important-links)
 * [Description](#description)
     - [Purpose](#purpose)
