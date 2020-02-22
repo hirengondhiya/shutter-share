@@ -67,6 +67,9 @@ R10	A link to your GitHub repository (repo). -->
 ## Description
     
 - ### Purpose
+
+    The purpose of this app is to create a two sided online marketplace for photographer to rent out their camera gear. 
+
 - ### Features
 - ### Sitemap
 - ### Screenshots
