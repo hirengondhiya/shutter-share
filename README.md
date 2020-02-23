@@ -91,6 +91,80 @@ R10	A link to your GitHub repository (repo). -->
 
 ## User Stories
 
+* ### User Management
+    
+    Feature
+    
+    - Sign up:
+    
+        As a site visitor, I should be able to sign up with my email id and create a password.
+        
+    - Sign in:
+    
+        As an existing user, when I am not signed in, I should be able to sign in using the credentials that I signed up with.
+        
+    - Sign out:
+    
+        As a Signed in User, I should be able to Sign out of my signed in account. 
+        
+     
+* ### Profile Management
+
+    Features
+    - Edit Profile:
+        
+        As a signed in user, I should be able to update my public information which is visible on my profile.
+    - Upload Profile Pic:
+        
+        As a signed in user, I should be able to upload my profile picture that is visible to other users.
+    - Delete Profile Pic:
+        
+        As a signed in user, I should be able to delete my profile picture.
+* ### Listing Management
+    Features
+    - Create listing
+        
+        As a signed in user, I should be able to create a new listing for my gear.
+    - Update listing
+        
+        As a signed in listing owner, I should be able to update previously created listing.
+    - Delete listing
+        
+        As a signed in listing owner, I should be able to delete previously created listing.
+    - Upload photos for listing
+        
+        As a signed in user, I should be able to upload photos to the listing created by me.
+    - View individual listing
+        
+        As a site visitor, I should be able to view an individual listing.
+    - View all listings
+        
+        As a site visitor, I should be able to view all the listings on the site. 
+* ### Lease Management
+    Features
+    
+    - Request for lease:
+    
+        As a signed in user, I should be able to send one and only one lease request per listing from all users except my own listings.
+        
+    - Cancel lease request:
+        
+        As a signed in lease request owner, I should be able to cancel lease request when it's pending for listing owner's approval.
+        
+    - Accept or Reject:
+    
+        As a listing owner, I should be able to accept or reject the lease request on my own listings only.
+        
+    - View all lease requests received:
+        
+        As a listing owner, I should be able to view all lease requests received on my listings.
+    - View all lease requests made:
+    
+        As a signed in user, I should be able to view all lease requests that I made on someone else' listing.
+            
+          
+
+
  ([Back to Table of Contents](#table-of-contents))
 
 <!-- R13	Wireframes for your app -->
@@ -114,6 +188,15 @@ R10	A link to your GitHub repository (repo). -->
 <!-- R16	Detail any third party services that your app will use -->
 
 ## Third Party Services
+
+The app uses following third party services,
+
+- Amazon S3: 
+    
+    A cloud based blob storage service, provided by Amazon AWS, to hold all the images uploaded by the users of the app.
+- Heroku: 
+
+    A cloud based hosting provider to be able to deploy the app on cloud and access it using the internet. 
 
 ([Back to Table of Contents](#table-of-contents))
 
