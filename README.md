@@ -93,72 +93,72 @@ R10	A link to your GitHub repository (repo). -->
 
 * ### User Management
     
-    Feature
+    #### Features
     
-    - Sign up:
+    - *Sign up*:
     
         As a site visitor, I should be able to sign up with my email id and create a password.
         
-    - Sign in:
+    - *Sign in*:
     
         As an existing user, when I am not signed in, I should be able to sign in using the credentials that I signed up with.
         
-    - Sign out:
+    - *Sign out*:
     
         As a Signed in User, I should be able to Sign out of my signed in account. 
         
      
 * ### Profile Management
 
-    Features
-    - Edit Profile:
+    #### Features
+    - *Edit Profile*:
         
         As a signed in user, I should be able to update my public information which is visible on my profile.
-    - Upload Profile Pic:
+    - *Upload Profile Pic*:
         
         As a signed in user, I should be able to upload my profile picture that is visible to other users.
-    - Delete Profile Pic:
+    - *Delete Profile Pic*:
         
         As a signed in user, I should be able to delete my profile picture.
 * ### Listing Management
-    Features
-    - Create listing
+    #### Features
+    - *Create listin*g
         
         As a signed in user, I should be able to create a new listing for my gear.
-    - Update listing
+    - *Update listin*g
         
         As a signed in listing owner, I should be able to update previously created listing.
-    - Delete listing
+    - *Delete listin*g
         
         As a signed in listing owner, I should be able to delete previously created listing.
-    - Upload photos for listing
+    - *Upload photos for listin*g
         
         As a signed in user, I should be able to upload photos to the listing created by me.
-    - View individual listing
+    - *View individual listin*g
         
         As a site visitor, I should be able to view an individual listing.
-    - View all listings
+    - *View all listing*s
         
         As a site visitor, I should be able to view all the listings on the site. 
 * ### Lease Management
-    Features
+    #### Features
     
-    - Request for lease:
+    - *Request for lease*:
     
         As a signed in user, I should be able to send one and only one lease request per listing from all users except my own listings.
         
-    - Cancel lease request:
+    - *Cancel lease request*:
         
         As a signed in lease request owner, I should be able to cancel lease request when it's pending for listing owner's approval.
         
-    - Accept or Reject:
+    - *Accept or Reject*:
     
         As a listing owner, I should be able to accept or reject the lease request on my own listings only.
         
-    - View all lease requests received:
+    - *View all lease requests received*:
         
         As a listing owner, I should be able to view all lease requests received on my listings.
-    - View all lease requests made:
+    - *View all lease requests made*:
     
         As a signed in user, I should be able to view all lease requests that I made on someone else' listing.
             
