@@ -120,6 +120,9 @@ R10	A link to your GitHub repository (repo). -->
     - **Delete Profile Pic**:
         
         As a signed in user, I should be able to delete my profile picture.
+    - **View Profile**:
+    
+        As a signed in user, I should be able to view my profile and any of the listing owner's profile.
 * ### Listing Management
     #### Features
     - **Create listing**:
