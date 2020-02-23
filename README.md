@@ -167,7 +167,7 @@ R10	A link to your GitHub repository (repo). -->
             
  ([Back to Table of Contents](#table-of-contents))
 
-<!-- R13	Wireframes for your app -->
+<!-- R13	Wire frames for your app -->
 
 ## Wireframes
 
@@ -176,6 +176,8 @@ R10	A link to your GitHub repository (repo). -->
 <!-- R14	An ERD for your app -->
 
 ## ERD Diagram
+
+![ER Diagram](./docs/er-diagram.svg)
 
 ([Back to Table of Contents](#table-of-contents))
 
