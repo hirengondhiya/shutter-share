@@ -1,4 +1,4 @@
-# ShutterShare
+# ShuttersShare
 
 Completed as Term 2 Ruby on Rails assessment at [Coder Academy's](https://coderacademy.edu.au/) GenTech 2019 Bootcamp.
 
@@ -51,9 +51,9 @@ R10	A link to your GitHub repository (repo). -->
 
 ## Important Links
 
-- Project: https://shuttershare.herokuapp.com/
+- Project: https://shuttersshare.herokuapp.com/
 
-- GitHub Repo: https://github.com/hirengondhiya/shuttershare
+- GitHub Repo: https://github.com/hirengondhiya/shuttersshare
 
 <!-- R11	Description of your marketplace app (website), including:
 - Purpose
