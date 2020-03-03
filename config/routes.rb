@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   get '/myprofile', to: 'profiles#show', as: 'myprofile'
-  post '/myprofile', to: 'profiles#update'
+  patch '/myprofile', to: 'profiles#update'
   get '/myprofile/public', to: 'profiles#public', as: 'myprofile_public'
   get '/myprofile/edit', to: 'profiles#edit', as: 'edit_myprofile'
 end
