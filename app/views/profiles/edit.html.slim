@@ -4,11 +4,7 @@ div
   .container
     .row
       .col-md-6.col-lg-3
-        .row
-          .col-lg-12.text-center.py-2
-            h6.ml-n5 Profile photo
-          .col.text-center
-            img.rounded-circle.ml-n5 src="/assets/img/538-200x200.jpg" /
+        = render partial: "profile_photo", locals: {profile: @profile}
       .col-md-6.col-lg-9
         .row
           .col
@@ -33,6 +29,7 @@ div
                 input.form-control-plaintext readonly="" type="text" value="#{@profile.user.email}" /
               .form-group
                 label Photo
-                input.form-control.p-1 accept="image/*" type="file" /
+                = f.file_field :picture, accept: 'image/png,image/gif,image/jpeg,image/jpg', class: "form-control p-1"
+                / input.form-control.p-1 accept="image/*" type="file" /
               .form-group.text-right
                 = f.submit "Save", class: " btn btn-dark px-4"

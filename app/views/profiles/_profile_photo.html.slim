@@ -1,0 +1,8 @@
+.row
+    .col-lg-12.text-center.py-2
+        h6.ml-n5 Profile photo
+    .col.text-center
+        - if profile.picture.attached?
+            = image_tag listing.picture, class: "rounded-circle ml-n5"
+        - else
+            i.fa.fa-user-circle.ml-n5 style=("font-size: 200px;")
