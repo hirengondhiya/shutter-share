@@ -12,8 +12,10 @@ div
       .col-md-6.col-lg-9
         .row
           .col-lg-12.p-2.ml-3
-            a.border.rounded.btn.btn-dark.btn-sm.px-3.ml-1 href="#"  Edit
-            a.border.rounded.btn.btn-dark.btn-sm.px-3.ml-1 href="#"  View Public Profile
+            = link_to "Edit", edit_myprofile_path, class: "border rounded btn btn-dark btn-sm px-3 ml-1"
+            / a.border.rounded.btn.btn-dark.btn-sm.px-3.ml-1 href="#"  Edit
+            = link_to "View Public Profile", myprofile_public_path, class: "border rounded btn btn-dark btn-sm px-3 ml-1"
+            / a.border.rounded.btn.btn-dark.btn-sm.px-3.ml-1 href="#"  View Public Profile
           .col-lg-12
             p
               strong Name:
