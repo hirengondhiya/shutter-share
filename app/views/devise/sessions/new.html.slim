@@ -1,0 +1,12 @@
+.login-clean style=("width: 100%;height: 100vh;") 
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    h2.sr-only Login Form
+    .illustration
+      i.fa.fa-sign-in.text-dark
+    .form-group
+      = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email"
+    .form-group
+      = f.password_field :password, autocomplete: "current-password", placeholder: "Password"
+    .form-group
+      = f.submit "Log in", class: "btn btn-dark btn-block"
+    = render "devise/shared/links"

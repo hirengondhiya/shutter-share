@@ -1,0 +1,11 @@
+.login-clean style=("width: 100%;height: 100vh;") 
+  = render "devise/shared/error_messages", resource: resource
+  = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+    h2.sr-only Forgot your password?
+    .illustration
+      i.fa.fa-chain-broken.text-dark
+    .form-group
+      = f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"Email"
+    .form-group
+      = f.submit "Send me instructions", class: "btn btn-dark btn-block"
+    = render "devise/shared/links"

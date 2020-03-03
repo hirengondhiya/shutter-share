@@ -13,6 +13,9 @@ html
     / = par
     / p Hello
     = render "partials/navbar"
+    - if notice || alert
+      = render partial: "partials/alert", locals: {type: notice && "notice" || "alert", text: notice || alert}
+
     = yield
 
     = javascript_include_tag "bs-init.js"
