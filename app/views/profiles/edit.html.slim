@@ -1,0 +1,32 @@
+.container.my-3
+  h2 My profile
+div
+  .container
+    .row
+      .col-md-6.col-lg-3
+        .row
+          .col-lg-12.text-center.py-2
+            h6.ml-n5 Profile photo
+          .col.text-center
+            img.rounded-circle.ml-n5 src="/assets/img/538-200x200.jpg" /
+      .col-md-6.col-lg-9
+        .row
+          .col
+            form
+              .form-group
+                label Name
+                input.form-control type="text" /
+              .form-group
+                label Location
+                input.form-control type="text" /
+              .form-group
+                label Phone
+                input.form-control type="tel" /
+              .form-group
+                label Email
+                input.form-control-plaintext readonly="" type="text" value="signed_up_email_id@domain.com" /
+              .form-group
+                label Photo
+                input.form-control.p-1 accept="image/*" type="file" /
+              .form-group.text-right
+                button.btn.btn-dark.px-4 type="submit"  Save
