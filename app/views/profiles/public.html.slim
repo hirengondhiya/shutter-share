@@ -11,22 +11,7 @@ div
             img.rounded-circle.ml-n5 src="/assets/img/538-200x200.jpg" /
       .col-md-6.col-lg-9
         .row
-          .col-lg-12
-            p
-              strong Name:
-              | Hiren Gondhiya
-          .col-lg-12
-            p
-              strong Phone:
-              | 0466123456
-          .col-lg-12
-            p
-              strong Email:
-              | signedup_email_id@domain.com
-          .col-lg-12
-            p
-              strong Location:
-              | Sydney
+          = render partial: 'basic_info', locals: {profile: @profile}
 .container.mt-5
   h3 Active listings
 .p-2

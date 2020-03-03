@@ -12,21 +12,27 @@ div
       .col-md-6.col-lg-9
         .row
           .col
-            form
+            = form_for @profile, url: myprofile_path do |f|
+              - if @profile.errors.any?
+                #error_explanation
+                  h5.text-danger = "#{pluralize(@profile.errors.count, "error")} prohibited your profile from being saved:"
+                  ul
+                    - @profile.errors.full_messages.each do |message|
+                      li.text-danger = message
               .form-group
-                label Name
-                input.form-control type="text" /
+                = f.label :name
+                = f.text_field :name, class: "form-control"
               .form-group
-                label Location
-                input.form-control type="text" /
+                = f.label :location
+                = f.text_field :location, class: "form-control"
               .form-group
-                label Phone
-                input.form-control type="tel" /
+                = f.label :phone
+                = f.telephone_field :phone, class: "form-control"
               .form-group
                 label Email
-                input.form-control-plaintext readonly="" type="text" value="signed_up_email_id@domain.com" /
+                input.form-control-plaintext readonly="" type="text" value="#{@profile.user.email}" /
               .form-group
                 label Photo
                 input.form-control.p-1 accept="image/*" type="file" /
               .form-group.text-right
-                button.btn.btn-dark.px-4 type="submit"  Save
+                = f.submit "Save", class: " btn btn-dark px-4"

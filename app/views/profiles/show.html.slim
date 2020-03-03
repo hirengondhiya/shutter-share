@@ -11,24 +11,9 @@ div
             img.rounded-circle.ml-n5 src="/assets/img/538-200x200.jpg" /
       .col-md-6.col-lg-9
         .row
-          .col-lg-12.p-2.ml-3
+          .col-lg-12.p-2
             = link_to "Edit", edit_myprofile_path, class: "border rounded btn btn-dark btn-sm px-3 ml-1"
             / a.border.rounded.btn.btn-dark.btn-sm.px-3.ml-1 href="#"  Edit
             = link_to "View Public Profile", myprofile_public_path, class: "border rounded btn btn-dark btn-sm px-3 ml-1"
             / a.border.rounded.btn.btn-dark.btn-sm.px-3.ml-1 href="#"  View Public Profile
-          .col-lg-12
-            p
-              strong Name:
-              | Hiren Gondhiya
-          .col-lg-12
-            p
-              strong Phone:
-              | 0466123456
-          .col-lg-12
-            p
-              strong Email:
-              | signedup_email_id@domain.com
-          .col-lg-12
-            p
-              strong Location:
-              | Sydney
+          = render partial: 'basic_info', locals: {profile: @profile}
