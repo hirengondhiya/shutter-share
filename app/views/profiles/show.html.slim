@@ -1,0 +1,15 @@
+.container.my-3
+  h2 My profile
+div
+  .container
+    .row
+      .col-md-6.col-lg-3
+        = render partial: "profile_photo", locals: {profile: @profile}
+      .col-md-6.col-lg-9
+        .row
+          .col-lg-12.p-2
+            = link_to "Edit", edit_myprofile_path, class: "border rounded btn btn-dark btn-sm px-3 ml-1"
+            / a.border.rounded.btn.btn-dark.btn-sm.px-3.ml-1 href="#"  Edit
+            = link_to "View Public Profile", myprofile_public_path, class: "border rounded btn btn-dark btn-sm px-3 ml-1"
+            / a.border.rounded.btn.btn-dark.btn-sm.px-3.ml-1 href="#"  View Public Profile
+          = render partial: 'basic_info', locals: {profile: @profile}

@@ -16,7 +16,8 @@ nav.navbar.navbar-light.navbar-expand-lg.bg-dark.navigation-clean-button.navbar-
         li.nav-item.dropdown
           a.dropdown-toggle.nav-link aria-expanded="false" data-toggle="dropdown" href="#"  My Shutter Share 
           .dropdown-menu role="menu"
-            a.dropdown-item href="/profiles/my" role="presentation"  My Profile
+            = link_to "My Profile", myprofile_path, class: "dropdown-item", role: "presentation"
+            / a.dropdown-item href="/profiles/my" role="presentation"  My Profile
             .dropdown-divider role="presentation"
             h6.dropdown-header role="presentation"
               strong Requests
