@@ -51,7 +51,10 @@ class ProfilesController < ApplicationController
 
       # when the user have not updated profile redirect to update
       def force_update_current_user_profile
-        if !current_user.profile.name
+        # To be sure if user profile has some details
+        # need to check both if user profile exists and if profile has a name 
+        # since profile is created first time the app renders edit form
+        if !current_user.profile || !current_user.profile.name
           redirect_to edit_myprofile_path, alert: 'Please first update your profile!'
         end  
       end
