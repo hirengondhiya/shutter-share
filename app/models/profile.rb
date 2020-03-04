@@ -1,6 +1,7 @@
 class Profile < ApplicationRecord
   belongs_to :user
 
+  # below validations are forced only on profile update
   validates :name, presence: true, on: :update
   validates :location, presence: true, on: :update
   # regular expression to check valid australian phone numbers
