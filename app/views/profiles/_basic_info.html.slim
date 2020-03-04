@@ -1,11 +1,11 @@
 .col-lg-12
     p
         strong Name: 
-        = profile.name
+        = if_empty_default_message profile.name
     .col-lg-12
     p
         strong Phone: 
-        = profile.phone
+        = if_empty_default_message profile.phone
     .col-lg-12
     p
         strong Email: 
@@ -13,4 +13,4 @@
     .col-lg-12
     p
         strong Location: 
-        = profile.location
+        = if_empty_default_message profile.location
