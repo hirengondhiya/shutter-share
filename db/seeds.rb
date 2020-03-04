@@ -13,5 +13,7 @@ users = [
 ]
 
 for u in users
-    User.create(email: u, password: "123456")
+    user = User.create(email: u, password: "123456")    
+    p = user.create_profile(name: u.split("@")[0], phone: "0466123456", location: "sydney")
+    # p.listings << Listing.create(title: )
 end
