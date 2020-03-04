@@ -27,9 +27,9 @@ div
               .form-group
                 label Email
                 input.form-control-plaintext readonly="" type="text" value="#{@profile.user.email}" /
-              .form-group
-                label Photo
-                = f.file_field :picture, accept: 'image/png,image/gif,image/jpeg,image/jpg', class: "form-control p-1"
-                / input.form-control.p-1 accept="image/*" type="file" /
+              - if !@profile.picture.attached?
+                .form-group
+                  = f.label :picture
+                  = f.file_field :picture, accept: 'image/png,image/gif,image/jpeg,image/jpg', class: "form-control p-1"
               .form-group.text-right
                 = f.submit "Save", class: " btn btn-dark px-4"

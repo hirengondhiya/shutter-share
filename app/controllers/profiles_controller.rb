@@ -25,6 +25,17 @@ class ProfilesController < ApplicationController
       end
     end
 
+    # DELETE /myprofile/delete_picture
+    def destroy_picture
+      @profile.picture.purge
+
+      if @profile.errors.any?
+        redirect_to edit_myprofile_path, alert: 'Errors prevented removing the image.'
+      else
+        redirect_to edit_myprofile_path, notice: 'Profile photo deleted.'
+      end
+    end
+
     private
       # To retrieve user profile
       def set_profile
