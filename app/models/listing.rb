@@ -17,4 +17,10 @@ class Listing < ApplicationRecord
   validates :model, presence: true
   validates :description, length: { minimum: 100 }
   validates :rate, numericality: { greater_than: 0 }
+
+  has_one_attached :image1
+  has_one_attached :image2
+  has_one_attached :image3
+  has_one_attached :image4
+  has_one_attached :image5
 end
