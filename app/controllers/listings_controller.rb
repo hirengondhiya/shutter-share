@@ -44,8 +44,12 @@ class ListingsController < ApplicationController
   
     # DELETE /listings/1
     def destroy
-    #   @listing.update(status: )
-    #   redirect_to listings_url, notice: 'Disabled the listing.'
+      @listing.status = :deleted
+      if @listing.save
+        redirect_to @listing, notice: 'Listing was successfully disabled.'
+      else
+        redirect_to @listing, alert: 'Not able to disable the listing.'
+      end  
     end
 
     # DELETE /listings/1/image/1
