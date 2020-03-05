@@ -60,6 +60,7 @@
           - else
             = image_tag @listing.image5, class:"border-light d-block p-2", style: "width: 200px;"
             = link_to "Remove", delete_listing_image_path(@listing.id, 5), class: "text-dark p-2", method: :delete
-          .form-group.text-right
-            = link_to "Remove", listing_path(@listing), method: :delete, class: "btn btn-dark px-5 ml-3"
+          .form-group.text-right.pt-3
+            - if show_listing_delete?
+              = link_to "Remove", listing_path(@listing), method: :delete, class: "btn btn-dark px-5 ml-3"
             = f.submit "Save", class: "btn btn-dark px-5 ml-3"
