@@ -32,6 +32,6 @@
           = render partial: "listing_image_field", locals: {f: f, image_sym: :image5, is_image_attached: @listing.image5.attached?, image_field: @listing.image5, listing_id: @listing.id, image_index: 5}
           .form-group.text-right.pt-3
             - if show_listing_delete?
-              = link_to "Remove", listing_path(@listing), method: :delete, class: "btn btn-dark px-5 ml-3"
-            = f.submit "Save", class: "btn btn-dark px-5 ml-3"
+              = link_to "Remove Listing", listing_path(@listing), method: :delete, class: "btn btn-dark px-5 ml-3"
+            = f.submit "Save Listing", class: "btn btn-dark px-5 ml-3"
           
