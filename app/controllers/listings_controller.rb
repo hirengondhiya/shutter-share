@@ -1,5 +1,5 @@
 class ListingsController < ApplicationController
-    before_action :set_listing, only: [:show, :edit, :update, :destroy]
+    before_action :set_listing, except: [:index, :new, :create]
     before_action :set_categories, only: [:new, :edit]
   
     # GET /listings
