@@ -12,6 +12,10 @@ class Listing < ApplicationRecord
     accessory: 2
   }
 
+  def owned_by user
+    user.profile && user.profile.id == self.profile_id
+  end
+
   validates :title, length: { minimum: 50 }
   validates :brand, presence: true
   validates :model, presence: true
