@@ -41,7 +41,7 @@ class ListingsController < ApplicationController
     # PATCH/PUT /listings/1
     def update
         if @listing.update(listing_params)
-            redirect_to @listing, notice: 'Listing was successfully updated.'
+            redirect_to edit_listing_path(@listing), notice: 'Listing was successfully updated.'
         else
             set_categories
             flas_alert_not_saved
@@ -62,11 +62,10 @@ class ListingsController < ApplicationController
     # DELETE /listings/1/image/1
     def destroy_image
       if (destroy_listing_image)
-        flash.now[:notice] = "The image was successfully removed."
+        redirect_to edit_listing_path(@listing), notice: "The image was successfully removed."
       else
-        flash.now[:alert] = "The image could not be deleted."
+        redirect_to edit_listing_path(@listing), alert: "The image could not be removed."
       end
-      render 'edit'
     end
   
     private
