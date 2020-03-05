@@ -55,7 +55,11 @@ class ListingsController < ApplicationController
     private
       # To find listing from current user's listings
       def set_listing
-        @listing = current_user.profile.listings.find(params[:id])
+        begin
+          @listing = current_user.profile.listings.find(params[:id])          
+        rescue => exception
+          redirect_to root_path, alert: "Could not find the listing."
+        end
       end
   
       # Only allow title, description, category, brand, model, rate and images
