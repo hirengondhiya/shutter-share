@@ -1,5 +1,6 @@
 class ListingsController < ApplicationController
-    before_action :set_listing, except: [:index, :new, :create]
+    before_action :set_listing, except: [:index, :new, :create, :show]
+    before_action :set_listing_all, only: [:show]
     before_action :set_categories, only: [:new, :edit, :destroy_image]
   
     # GET /listings
@@ -56,24 +57,11 @@ class ListingsController < ApplicationController
 
     # DELETE /listings/1/image/1
     def destroy_image
-      case params[:index]
-        when "1"
-          @listing.image1.purge
-        when "2"
-          @listing.image2.purge
-        when "3"
-          @listing.image3.purge
-        when "4"
-          @listing.image4.purge
-        when "5"
-          @listing.image5.purge
-        else
-          image_not_found = true
-      end
-      if (image_not_found)
-        flash.now[:alert] = "Image not found."
-      else
+
+      if (destroy_listing_image)
         flash.now[:notice] = "The image was successfully removed."
+      else
+        flash.now[:alert] = "The image could not be deleted."
       end
       render 'edit'
     end
@@ -83,6 +71,15 @@ class ListingsController < ApplicationController
       def set_listing
         begin
           @listing = current_user.profile.listings.find(params[:id])          
+        rescue => exception
+          redirect_to root_path, alert: "Could not find the listing."
+        end
+      end
+
+      # To find listing irrespective of current user id
+      def set_listing_all
+        begin
+          @listing = Listing.find(params[:id])          
         rescue => exception
           redirect_to root_path, alert: "Could not find the listing."
         end
@@ -101,6 +98,29 @@ class ListingsController < ApplicationController
       # To show alert when listing was not saved successfully.
       def flas_alert_not_saved
         flash.now[:alert] = "Can not save listing. Please fix the errors to continue."
+      end
+
+      # To delete listing image based on index
+      def destroy_listing_image 
+        begin
+          case params[:index]
+            when "1"
+              @listing.image1.purge
+            when "2"
+              @listing.image2.purge
+            when "3"
+              @listing.image3.purge
+            when "4"
+              @listing.image4.purge
+            when "5"
+              @listing.image5.purge
+            else
+              return false
+          end          
+        rescue => exception
+          return false
+        end
+        return true
       end
 end
   
