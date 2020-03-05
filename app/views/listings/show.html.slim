@@ -1,6 +1,7 @@
 .container.mt-3
-  a.border.rounded.border-light.btn.btn-dark.px-3 href="#"  Edit Listing
-  a.border.rounded.border-light.btn.btn-dark.px-3.ml-3 href="#"  Remove Listing
+  - if @listing.owned_by? current_user
+    = link_to "Edit Listing", edit_listing_path(@listing), class: "border rounded border-light btn btn-dark px-3"
+    = link_to "Remove Listing", listing_path(@listing), method: :delete, class: "border rounded border-light btn btn-dark px-3"
 .my-4
   .container
     .row
@@ -75,6 +76,7 @@
         .col-lg-10
           h6 Request sent 5 days ago
         .col-lg-2
+          = render partial: "partials/status_h6", locals: {status: "pending"}
           h6.text-right.text-info
             i.fa.fa-hourglass-1
             strong Pending
