@@ -25,42 +25,13 @@
           .form-group
             = f.label :rate
             = f.number_field :rate, class: "form-control", min: 1
-          .form-group
-            = f.label :image1
-          - if !@listing.image1.attached?
-              = f.file_field :image1, accept: 'image/png,image/jpeg,image/jpg', class: "form-control p-1"
-          - else
-            = image_tag @listing.image1, class:"border-light d-block p-2", style: "width: 200px;"
-            = link_to "Remove", delete_listing_image_path(@listing.id, 1), class: "text-dark p-2", method: :delete
-          .form-group
-            = f.label :image2
-          - if !@listing.image2.attached?
-              = f.file_field :image2, accept: 'image/png,image/jpeg,image/jpg', class: "form-control p-1"
-          - else
-            = image_tag @listing.image2, class:"border-light d-block p-2", style: "width: 200px;"
-            = link_to "Remove", delete_listing_image_path(@listing.id, 2), class: "text-dark p-2", method: :delete
-          .form-group
-            = f.label :image3
-          - if !@listing.image3.attached?
-              = f.file_field :image3, accept: 'image/png,image/jpeg,image/jpg', class: "form-control p-1"
-          - else
-            = image_tag @listing.image3, class:"border-light d-block p-2", style: "width: 200px;"
-            = link_to "Remove", delete_listing_image_path(@listing.id, 3), class: "text-dark p-2", method: :delete
-          .form-group
-            = f.label :image4
-          - if !@listing.image4.attached?
-              = f.file_field :image4, accept: 'image/png,image/jpeg,image/jpg', class: "form-control p-1"
-          - else
-            = image_tag @listing.image4, class:"border-light d-block p-2", style: "width: 200px;"
-            = link_to "Remove", delete_listing_image_path(@listing.id, 4), class: "text-dark p-2", method: :delete
-          .form-group
-            = f.label :image5
-          - if !@listing.image5.attached?
-              = f.file_field :image5, accept: 'image/png,image/jpeg,image/jpg', class: "form-control p-1"
-          - else
-            = image_tag @listing.image5, class:"border-light d-block p-2", style: "width: 200px;"
-            = link_to "Remove", delete_listing_image_path(@listing.id, 5), class: "text-dark p-2", method: :delete
+          = render partial: "listing_image_field", locals: {f: f, image_sym: :image1, is_image_attached: @listing.image1.attached?, image_field: @listing.image1, listing_id: @listing.id, image_index: 1}
+          = render partial: "listing_image_field", locals: {f: f, image_sym: :image2, is_image_attached: @listing.image2.attached?, image_field: @listing.image2, listing_id: @listing.id, image_index: 2}
+          = render partial: "listing_image_field", locals: {f: f, image_sym: :image3, is_image_attached: @listing.image3.attached?, image_field: @listing.image3, listing_id: @listing.id, image_index: 3}
+          = render partial: "listing_image_field", locals: {f: f, image_sym: :image4, is_image_attached: @listing.image4.attached?, image_field: @listing.image4, listing_id: @listing.id, image_index: 4}
+          = render partial: "listing_image_field", locals: {f: f, image_sym: :image5, is_image_attached: @listing.image5.attached?, image_field: @listing.image5, listing_id: @listing.id, image_index: 5}
           .form-group.text-right.pt-3
             - if show_listing_delete?
               = link_to "Remove", listing_path(@listing), method: :delete, class: "btn btn-dark px-5 ml-3"
             = f.submit "Save", class: "btn btn-dark px-5 ml-3"
+          
