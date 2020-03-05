@@ -1,0 +1,66 @@
+.my-3
+  .container
+    .row
+      .col-md-12
+        = form_for @listing do |f|
+          = render partial: "/partials/error_messages", locals: {item: @listing, item_name: "listing" }
+          .form-group
+            = f.label :title
+            = f.text_field :title, class: "form-control"
+          .form-group
+            = f.label :description
+            = f.text_area :description, class: "form-control"
+          .form-group
+            = f.label :category
+            - @categories.each do |option|
+              .form-check
+                = f.radio_button :category, option, class: "form-check-input"
+                = f.label "category_#{option}".to_sym, option, class: "form-check-label text-capitalize"
+          .form-group
+            = f.label :brand
+            = f.text_field :brand, class: "form-control"
+          .form-group
+            = f.label :model
+            = f.text_field :model, class: "form-control"
+          .form-group
+            = f.label :rate
+            = f.number_field :rate, class: "form-control", min: 1
+          .form-group
+            = f.label :image1
+          - if !@listing.image1.attached?
+              = f.file_field :image1, accept: 'image/png,image/jpeg,image/jpg', class: "form-control p-1"
+          - else
+            = image_tag @listing.image1, class:"border-light d-block p-2", style: "width: 200px;"
+            = link_to "Remove", delete_listing_image_path(@listing.id, 1), class: "text-dark p-2", method: :delete
+          .form-group
+            = f.label :image2
+          - if !@listing.image2.attached?
+              = f.file_field :image2, accept: 'image/png,image/jpeg,image/jpg', class: "form-control p-1"
+          - else
+            = image_tag @listing.image2, class:"border-light d-block p-2", style: "width: 200px;"
+            = link_to "Remove", delete_listing_image_path(@listing.id, 2), class: "text-dark p-2", method: :delete
+          .form-group
+            = f.label :image3
+          - if !@listing.image3.attached?
+              = f.file_field :image3, accept: 'image/png,image/jpeg,image/jpg', class: "form-control p-1"
+          - else
+            = image_tag @listing.image3, class:"border-light d-block p-2", style: "width: 200px;"
+            = link_to "Remove", delete_listing_image_path(@listing.id, 3), class: "text-dark p-2", method: :delete
+          .form-group
+            = f.label :image4
+          - if !@listing.image4.attached?
+              = f.file_field :image4, accept: 'image/png,image/jpeg,image/jpg', class: "form-control p-1"
+          - else
+            = image_tag @listing.image4, class:"border-light d-block p-2", style: "width: 200px;"
+            = link_to "Remove", delete_listing_image_path(@listing.id, 4), class: "text-dark p-2", method: :delete
+          .form-group
+            = f.label :image5
+          - if !@listing.image5.attached?
+              = f.file_field :image5, accept: 'image/png,image/jpeg,image/jpg', class: "form-control p-1"
+          - else
+            = image_tag @listing.image5, class:"border-light d-block p-2", style: "width: 200px;"
+            = link_to "Remove", delete_listing_image_path(@listing.id, 5), class: "text-dark p-2", method: :delete
+          .form-group.text-right
+            = link_to "Remove", listing_path(@listing), method: :delete, class: "btn btn-dark px-5 ml-3"
+            a.btn.btn-dark.px-5.ml-3 href="#"  Remove
+            = f.submit "Save", class: "btn btn-dark px-5 ml-3"
