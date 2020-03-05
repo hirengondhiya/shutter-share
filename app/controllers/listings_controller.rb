@@ -1,6 +1,6 @@
 class ListingsController < ApplicationController
     before_action :set_listing, except: [:index, :new, :create]
-    before_action :set_categories, only: [:new, :edit]
+    before_action :set_categories, only: [:new, :edit, :destroy_image]
   
     # GET /listings
     def index
@@ -28,6 +28,7 @@ class ListingsController < ApplicationController
         redirect_to @listing, notice: 'Listing was successfully created.'
       else
         set_categories
+        flas_alert_not_saved
         render :new
       end
     end
@@ -38,6 +39,7 @@ class ListingsController < ApplicationController
             redirect_to @listing, notice: 'Listing was successfully updated.'
         else
             set_categories
+            flas_alert_not_saved
             render :edit
         end  
     end
@@ -54,8 +56,26 @@ class ListingsController < ApplicationController
 
     # DELETE /listings/1/image/1
     def destroy_image
-    #   @listing.update(status: )
-    #   redirect_to listings_url, notice: 'Disabled the listing.'
+      case params[:index]
+        when "1"
+          @listing.image1.purge
+        when "2"
+          @listing.image2.purge
+        when "3"
+          @listing.image3.purge
+        when "4"
+          @listing.image4.purge
+        when "5"
+          @listing.image5.purge
+        else
+          image_not_found = true
+      end
+      if (image_not_found)
+        flash.now[:alert] = "Image not found."
+      else
+        flash.now[:notice] = "The image was successfully removed."
+      end
+      render 'edit'
     end
   
     private
@@ -73,8 +93,14 @@ class ListingsController < ApplicationController
         params.require(:listing).permit(:title, :description, :category, :brand, :model, :rate, :image1, :image2, :image3, :image4, :image5)
       end
 
+      # To show categories radio options
       def set_categories
         @categories = Listing.categories.keys
-      end   
+      end
+      
+      # To show alert when listing was not saved successfully.
+      def flas_alert_not_saved
+        flash.now[:alert] = "Can not save listing. Please fix the errors to continue."
+      end
 end
   
