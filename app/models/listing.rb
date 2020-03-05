@@ -12,7 +12,7 @@ class Listing < ApplicationRecord
     accessory: 2
   }
 
-  def owned_by user
+  def owned_by? user
     user.profile && user.profile.id == self.profile_id
   end
 
@@ -27,4 +27,6 @@ class Listing < ApplicationRecord
   has_one_attached :image3
   has_one_attached :image4
   has_one_attached :image5
+
+  validates :image1, attached: true
 end
