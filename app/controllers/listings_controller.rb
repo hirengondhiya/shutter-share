@@ -10,6 +10,10 @@ class ListingsController < ApplicationController
   
     # GET /listings/1
     def show
+      # When listing is disabled don't show it anyone else except the owner
+      if @listing.status != :active && !@listing.owned_by?(current_user)
+        redirect_to root_path, alert: "Could not find the listing."
+      end  
     end
   
     # GET /listings/new
@@ -57,7 +61,6 @@ class ListingsController < ApplicationController
 
     # DELETE /listings/1/image/1
     def destroy_image
-
       if (destroy_listing_image)
         flash.now[:notice] = "The image was successfully removed."
       else
@@ -79,7 +82,7 @@ class ListingsController < ApplicationController
       # To find listing irrespective of current user id
       def set_listing_all
         begin
-          @listing = Listing.find(params[:id])          
+          @listing = Listing.find(params[:id])
         rescue => exception
           redirect_to root_path, alert: "Could not find the listing."
         end
@@ -122,5 +125,7 @@ class ListingsController < ApplicationController
         end
         return true
       end
+
+      
 end
   
