@@ -27,7 +27,8 @@ class ListingsController < ApplicationController
       if @listing.save
         redirect_to @listing, notice: 'Listing was successfully created.'
       else
-        render :new, @listing
+        set_categories
+        render :new
       end
     end
   
@@ -36,6 +37,7 @@ class ListingsController < ApplicationController
         if @listing.update(listing_params)
             redirect_to @listing, notice: 'Listing was successfully updated.'
         else
+            set_categories
             render :edit
         end  
     end
