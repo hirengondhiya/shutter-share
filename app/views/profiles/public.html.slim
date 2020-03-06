@@ -26,12 +26,26 @@ div
                   h3.text-truncate = listing.title
               .row
                 .col
-                  p = "$#{listing.rate} per day"
+                  span
+                    strong Brand: 
+                  span.text-capitalize  = listing.brand
+                .col
+                  span
+                    strong Model: 
+                  span.text-capitalize  = listing.model
+                .col
+                  span
+                    strong Category: 
+                  span.text-capitalize  = listing.category
+                .col
+                  span
+                    strong Rate: 
+                  span.text-capitalize  = "$#{listing.rate} per day"
             .col-lg-2
-              p = listing.profile.location
+              p.text-capitalize = listing.profile.location
           .row
             .col-lg-10.offset-0
-              p.text-truncate = listing.description
+              p = listing.description
             .col-lg-2.align-self-end
               p = "#{time_ago_in_words listing.updated_at} ago"
 .container.mt-5

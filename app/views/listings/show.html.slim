@@ -57,12 +57,33 @@
             h5.text-dark.pt-1 = @listing.profile.name
         .row.my-1
           .col.align-content-center
-            p.mb-0 =  "$ #{if_empty_default_message @listing.rate} per day"
+            p.mb-0
+              span
+                strong Brand: 
+              span.text-capitalize  = @listing.brand
+        .row.my-1
+          .col.align-content-center
+            p.mb-0
+              span
+                strong Model: 
+              span.text-capitalize  = @listing.model
+        .row.my-1
+          .col.align-content-center
+            p.mb-0
+              span
+                strong Category: 
+              span.text-capitalize  = @listing.category
+        .row.my-1
+          .col.align-content-center
+            p.mb-0
+              span
+                strong Rate: 
+              span.text-capitalize  = "$#{@listing.rate} per day"
         .row.my-1
           .col
             p.d-flex.align-items-center.mb-0
               i.fa.fa-map-marker.mr-1 style=("font-size: 25px;")
-              = if_empty_default_message @listing.profile.location
+              span.text-capitalize = if_empty_default_message @listing.profile.location
         .row.my-1
           .col.align-content-center
             p.mb-0

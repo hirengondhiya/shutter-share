@@ -11,8 +11,10 @@
                     .row
                         .col-lg-10
                             .row
-                                .col
+                                .col-12
                                     h3.text-truncate = listing.title
+                                .col-12
+                                    p.text-capitalize = listing.category
                             .row
                                 .col
                                     p = "$#{listing.rate} per day"
