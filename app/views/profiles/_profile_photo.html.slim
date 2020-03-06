@@ -3,7 +3,7 @@
         h6.ml-n5 Profile photo
     .col.text-center
         - if profile.picture.attached?
-            = image_tag profile.picture, class: "rounded-circle ml-n5"
+            = image_tag profile.picture, class: "rounded-circle ml-n5 bg-secondary", style: "width:150px;height:150px;"
         - else
             i.fa.fa-user-circle.ml-n5 style=("font-size: 200px;")
     - if remove_profile_photo? profile
