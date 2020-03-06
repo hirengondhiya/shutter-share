@@ -12,4 +12,5 @@ Rails.application.routes.draw do
 
   resources :listings
   delete '/listings/:id/image/:index', to: 'listings#destroy_image', as: 'delete_listing_image'
+  get '/listings/my', to: 'listings#my', as: 'my_listings'
 end
