@@ -10,8 +10,7 @@ class ListingsController < ApplicationController
 
     # GET /listings/my
     def my
-      @active = Listing.for_profile(current_user.profile.id).active
-      @deleted = Listing.for_profile(current_user.profile.id).deleted
+      @listings = Listing.for_profile(current_user.profile.id)
     end
   
     # GET /listings/1
