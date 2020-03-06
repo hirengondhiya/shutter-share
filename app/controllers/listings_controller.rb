@@ -1,11 +1,17 @@
 class ListingsController < ApplicationController
-    before_action :set_listing, except: [:index, :new, :create, :show]
+    before_action :set_listing, except: [:index, :new, :create, :show, :my]
     before_action :set_listing_all, only: [:show]
     before_action :set_categories, only: [:new, :edit, :destroy_image]
   
     # GET /listings
     def index
       @listings = Listing.all
+    end
+
+    # GET /listings/my
+    def my
+      @active = Listing.for_profile(current_user.profile.id).active
+      @deleted = Listing.for_profile(current_user.profile.id).deleted
     end
   
     # GET /listings/1
