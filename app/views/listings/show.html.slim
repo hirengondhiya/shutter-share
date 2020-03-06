@@ -6,7 +6,7 @@
   .container
     .row
       .col-md-6.col-lg-9
-        #carousel-1.carousel.slide data-ride="carousel" style="background-color:rgba(52,58,64,0.53)"
+        #carousel-1.carousel.slide.bg-secondary data-ride="carousel"
           .carousel-inner role="listbox" 
             .carousel-item.active
               .carousel-img-container
@@ -50,47 +50,39 @@
       .col-md-6.col-lg-3
         .row.mb-1.position-relative
           .col-lg-3.px-1
-            img.border.rounded-circle src="538-200x200.jpg" width="50px" /
+            = render partial: "partials/profile_photo_50px", locals: {profile: @listing.profile}
           .col.align-self-center.px-0.position-static
-            a.stretched-link href="#" 
-            h5.text-dark Listing Owner
+            = link_to "", userprofile_public_path(@listing.profile), class: "stretched-link"
+            h5.text-dark.pt-1 = @listing.profile.name
         .row.my-1
           .col.align-content-center
-            p.mb-0 $ amount per day
+            p.mb-0 =  "$ #{if_empty_default_message @listing.rate} per day"
         .row.my-1
           .col
             p.d-flex.align-items-center.mb-0
-              i.fa.fa-map-marker style=("font-size: 25px;") 
-              |  Owner Location
+              i.fa.fa-map-marker.mr-1 style=("font-size: 25px;")
+              = if_empty_default_message @listing.profile.location
         .row.my-1
           .col.align-content-center
             p.mb-0
               span
                 strong Listed on: 
-              span dd/mm/yyyy
+              span = @listing.created_at.in_time_zone("Sydney").strftime("%D")
         .row.my-1
           .col.align-content-center
             p.mb-0
               span
                 strong Edited: 
-              span dd/mm/yyyy
+              span = @listing.updated_at.in_time_zone("Sydney").strftime("%D")
         .row.my-3
           .col.text-center
             a.border.rounded.border-light.btn.btn-dark.px-5 href="#"  Lease Now
 .container
   .row.my-2
     .col-lg-12
-      h2 Product Title
+      h2 = @listing.title
     .col
-      p
-        | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Fringilla ut morbi tincidunt augue. Lectus mauris ultrices eros in cursus turpis massa tincidunt dui. Sed viverra ipsum
-        | nunc aliquet bibendum enim facilisis gravida neque. In eu mi bibendum neque egestas congue quisque egestas. Tortor consequat id porta nibh. Sit amet mattis vulputate enim nulla. Magnis dis parturient montes nascetur ridiculus. At consectetur
-        | lorem donec massa. Ante metus dictum at tempor commodo ullamcorper a. Nisi est sit amet facilisis magna etiam tempor. Dictum fusce ut placerat orci nulla. Sit amet mauris commodo quis. Orci sagittis eu volutpat odio facilisis mauris sit
-        | amet massa. Nunc mi ipsum faucibus vitae aliquet nec ullamcorper sit amet. Tincidunt augue interdum velit euismod.
-        br/
-        | ridiculus mus mauris vitae. Facilisi nullam vehicula ipsum a. Ornare arcu odio ut sem nulla pharetra
-        | diam sit amet. At imperdiet dui accumsan sit amet nulla facilisi morbi. In arcu cursus euismod quis. Cursus vitae congue mauris rhoncus aenean vel. Ut pharetra sit amet aliquam id diam maecenas ultricies mi. Fringilla ut morbi tincidunt
-        | augue interdum velit. Libero volutpat sed cras ornare arcu dui vivamus arcu felis. Condimentum lacinia quis vel eros donec ac odio tempor orci. Pretium fusce id velit ut tortor pretium. Sed id semper risus in hendrerit gravida rutrum.
+      p = @listing.description
     .col-lg-12
       h3 Requests Sent
     .col-lg-12

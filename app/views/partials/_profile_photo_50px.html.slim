@@ -1,0 +1,4 @@
+- if profile.picture.attached?
+    = image_tag profile.picture, class: "border rounded-circle", width:"50px"
+- else
+    i.fa.fa-user-circle style=("font-size: 30px;")
