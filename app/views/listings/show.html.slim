@@ -1,7 +1,8 @@
-.container.mt-3
-  - if @listing.owned_by? current_user
+- if @listing.owned_by? current_user
+  .container.mt-3
     = link_to "Edit Listing", edit_listing_path(@listing), class: "border rounded border-light btn btn-dark px-3"
-    = link_to "Remove Listing", listing_path(@listing), method: :delete, class: "border rounded border-light btn btn-dark px-3"
+    = link_to "Remove Listing", listing_path(@listing), method: :delete, class: "border rounded border-light btn btn-dark px-3 ml-2"
+    span.h5.ml-2 = "Status: #{@listing.status}"
 .my-4
   .container
     .row
@@ -74,9 +75,11 @@
               span
                 strong Edited: 
               span = @listing.updated_at.in_time_zone("Sydney").strftime("%D")
-        .row.my-3
-          .col.text-center
-            a.border.rounded.border-light.btn.btn-dark.px-5 href="#"  Lease Now
+                    - if !@listing.owned_by? current_user
+        - if !@listing.owned_by? current_user
+          .row.my-3
+            .col.text-center
+              a.border.rounded.border-light.btn.btn-dark.px-5 href="#"  Lease Now
 .container
   .row.my-2
     .col-lg-12
