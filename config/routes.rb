@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   delete '/myprofile/delete_picture', to: 'profiles#destroy_picture', as: 'delete_myprofile_picture'
   get '/userprofile/:id', to: 'profiles#public', as: 'userprofile_public'
 
+  get '/listings/my', to: 'listings#my', as: 'my_listings'
   resources :listings
   delete '/listings/:id/image/:index', to: 'listings#destroy_image', as: 'delete_listing_image'
-  get '/listings/my', to: 'listings#my', as: 'my_listings'
 end
