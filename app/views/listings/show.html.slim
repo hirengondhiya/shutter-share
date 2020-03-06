@@ -10,27 +10,27 @@
         #carousel-1.carousel.slide.bg-secondary data-ride="carousel"
           .carousel-inner role="listbox" 
             .carousel-item.active
-              .carousel-img-container
+              .carousel-img-container.p-2
                 - if @listing.image1.attached?
-                  = image_tag @listing.image1, class: "d-block", alt: "listing image"
+                  = image_tag @listing.image1, class: "d-block", alt: "listing image", style: "height:300px;"
                 - else
                   img.d-block alt=("Slide Image") src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png" /                
             - if @listing.image2.attached?
               .carousel-item
                 .carousel-img-container
-                  = image_tag @listing.image2, class: "d-block", alt: "listing image"
+                  = image_tag @listing.image2, class: "d-block", alt: "listing image", style: "height:300px;"
             - if @listing.image3.attached?
               .carousel-item
                 .carousel-img-container
-                  = image_tag @listing.image3, class: "d-block", alt: "listing image"
+                  = image_tag @listing.image3, class: "d-block", alt: "listing image", style: "height:300px;"
             - if @listing.image4.attached?
               .carousel-item
                 .carousel-img-container
-                  = image_tag @listing.image4, class: "d-block", alt: "listing image"
+                  = image_tag @listing.image4, class: "d-block", alt: "listing image", style: "height:300px;"
             - if @listing.image5.attached?
               .carousel-item
                 .carousel-img-container
-                  = image_tag @listing.image5, class: "d-block", alt: "listing image"
+                  = image_tag @listing.image5, class: "d-block", alt: "listing image", style: "height:300px;"
           div
             a.carousel-control-prev data-slide="prev" href="#carousel-1" role="button" 
               span.carousel-control-prev-icon
