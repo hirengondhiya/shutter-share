@@ -16,7 +16,7 @@ class ListingsController < ApplicationController
     # GET /listings/1
     def show
       # When listing is disabled don't show it anyone else except the owner
-      if @listing.status != :active && !@listing.owned_by?(current_user)
+      if @listing.status == :deleted && !@listing.owned_by?(current_user)
         redirect_to root_path, alert: "Could not find the listing."
       end  
     end
