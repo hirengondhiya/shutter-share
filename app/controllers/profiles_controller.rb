@@ -10,6 +10,7 @@ class ProfilesController < ApplicationController
     # GET /myprofile/public
     # GET /userprofile/:id
     def public
+      @active_listings = Listing.for_profile(@profile.id).active
     end
     
     # GET /myprofile/edit
