@@ -28,7 +28,7 @@ class Listing < ApplicationRecord
   has_one_attached :image4
   has_one_attached :image5
 
-  validates :image1, attached: true
+  # validates :image1, attached: true
 
   # short hand queries to find listings that belong to a user profile
   scope :for_profile, ->(user_profile_id) { where("profile_id = ?", user_profile_id) }
