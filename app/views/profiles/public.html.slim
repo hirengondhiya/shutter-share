@@ -16,8 +16,11 @@ div
     .container.bg-light.pt-2
       .row.position-relative
         .col-12.col-sm-5.col-md-3.col-lg-2.text-left.align-self-start.position-static
-          a.stretched-link href=("#{listing_path(listing)}") 
-            = image_tag listing.image1, class: "rounded img-fluid", loading:"lazy", style:"width: 100%;"
+          a.stretched-link href=("#{listing_path(listing)}")
+            - if listing.image1.attached?
+              = image_tag listing.image1, class: "rounded img-fluid", loading:"lazy", style:"width: 100%;"
+            - else
+              = image_tag "placeholder.png", class: "rounded img-fluid", loading:"lazy", style:"width: 100%;"
         .col-12.col-sm-7.col-md-9.col-lg-10
           .row
             .col-lg-10
