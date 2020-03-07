@@ -10,50 +10,44 @@ div
           = render partial: 'basic_info', locals: {profile: @profile}
 .container.mt-5
   h3 Active listings
-.p-2
-  .container.bg-light.pt-2
-    .row.position-relative
-      .col-12.col-sm-5.col-md-3.col-lg-2.text-left.align-self-start.position-static
-        a.stretched-link href="#" 
-          img.rounded.img-fluid loading="lazy" src="/assets/img/948-200x200.jpg" style=("width: 100%;") /
-      .col-12.col-sm-7.col-md-9.col-lg-10
-        .row
-          .col-lg-10
-            .row
-              .col
-                h3.text-truncate Product title
-            .row
-              .col
-                p $rate/day
-          .col-lg-2
-            p Location
-        .row
-          .col-lg-10.offset-0
-            p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          .col-lg-2.align-self-end
-            p 5 days ago
-.p-2
-  .container.bg-light.pt-2
-    .row.position-relative
-      .col-12.col-sm-5.col-md-3.col-lg-2.text-left.align-self-start.position-static
-        a.stretched-link href="#" 
-          img.rounded.img-fluid loading="lazy" src="/assets/img/948-200x200.jpg" style=("width: 100%;") /
-      .col-12.col-sm-7.col-md-9.col-lg-10
-        .row
-          .col-lg-10
-            .row
-              .col
-                h3.text-truncate Product title
-            .row
-              .col
-                p $rate/day
-          .col-lg-2
-            p Location
-        .row
-          .col-lg-10.offset-0
-            p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          .col-lg-2.align-self-end
-            p dd/mm/yyyy
+
+- @active_listings.each do | listing | 
+  .p-2
+    .container.bg-light.pt-2
+      .row.position-relative
+        .col-12.col-sm-5.col-md-3.col-lg-2.text-left.align-self-start.position-static
+          a.stretched-link href=("#{listing_path(listing)}") 
+            = image_tag listing.image1, class: "rounded img-fluid", loading:"lazy", style:"width: 100%;"
+        .col-12.col-sm-7.col-md-9.col-lg-10
+          .row
+            .col-lg-10
+              .row
+                .col
+                  h3.text-truncate = listing.title
+              .row
+                .col
+                  span
+                    strong Brand: 
+                  span.text-capitalize  = listing.brand
+                .col
+                  span
+                    strong Model: 
+                  span.text-capitalize  = listing.model
+                .col
+                  span
+                    strong Category: 
+                  span.text-capitalize  = listing.category
+                .col
+                  span
+                    strong Rate: 
+                  span.text-capitalize  = "$#{listing.rate} per day"
+            .col-lg-2
+              p.text-capitalize = listing.profile.location
+          .row
+            .col-lg-10.offset-0
+              p = listing.description
+            .col-lg-2.align-self-end
+              p = "#{time_ago_in_words listing.updated_at} ago"
 .container.mt-5
   h3 Recent transactions
 .p-2

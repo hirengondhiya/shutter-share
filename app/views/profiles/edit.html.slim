@@ -9,12 +9,7 @@ div
         .row
           .col
             = form_for @profile, url: myprofile_path do |f|
-              - if @profile.errors.any?
-                #error_explanation
-                  h5.text-danger = "#{pluralize(@profile.errors.count, "error")} prohibited your profile from being saved:"
-                  ul
-                    - @profile.errors.full_messages.each do |message|
-                      li.text-danger = message
+              = render partial: "/partials/error_messages", locals: {item: @profile, item_name: "profile" }
               .form-group
                 = f.label :name
                 = f.text_field :name, class: "form-control"

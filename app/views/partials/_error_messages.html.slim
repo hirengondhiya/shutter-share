@@ -1,0 +1,6 @@
+- if item.errors.any?
+    #error_explanation
+        h5.text-danger = "#{pluralize(item.errors.count, "error")} prohibited your #{item_name} from being saved:"
+        ul
+            - item.errors.full_messages.each do |message|
+                li.text-danger = message

@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  brand: MyString
+  model: MyString
+  description: MyText
+  rate: 1
+  category: 1
+  status: 1
+  profile: one
+
+two:
+  title: MyString
+  brand: MyString
+  model: MyString
+  description: MyText
+  rate: 1
+  category: 1
+  status: 1
+  profile: two

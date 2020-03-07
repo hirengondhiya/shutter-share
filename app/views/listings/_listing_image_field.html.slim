@@ -1,0 +1,7 @@
+.form-group
+    = f.label image_sym
+    - if !is_image_attached
+        = f.file_field image_sym, accept: 'image/png,image/jpeg,image/jpg', class: "form-control p-1"
+    - else
+        = image_tag image_field, class:"border-light d-block p-2", style: "width: 200px;"
+        = link_to "Remove Image", delete_listing_image_path(listing_id, image_index), class: "btn btn-dark p-2", method: :delete

@@ -72,3 +72,5 @@ gem "font-awesome-rails", "~> 4.7"
 gem "devise", "~> 4.7"
 
 gem "aws-sdk-s3", "~> 1.60"
+
+gem "faker", "~> 2.10"

@@ -1,0 +1,31 @@
+<div class="container my-3">
+    <h2>My Listings</h2>
+</div>
+- @listings.each do | listing |
+    .p-2.my-2
+        .container.bg-light.py-3
+            .row
+                .col-12.col-sm-5.col-md-3.col-lg-2.text-left.align-self-start
+                    = image_tag listing.image1, loading:"lazy", style:"width: 100%;", class: "rounded img-fluid"
+                .col-12.col-sm-7.col-md-9.col-lg-10
+                    .row
+                        .col-lg-10
+                            .row
+                                .col-12
+                                    h3.text-truncate = listing.title
+                                .col-12
+                                    p.text-capitalize = listing.category
+                            .row
+                                .col
+                                    p = "$#{listing.rate} per day"
+                        .col-lg-2.text-right
+                            p.text-capitalize = listing.status
+                    .row
+                        .col-lg-10.offset-0
+                            p = listing.description
+                        .col-lg-2.text-right.align-self-end
+                            p = "#{time_ago_in_words listing.updated_at} ago"
+                .col-lg-12.text-right
+                    = link_to "Remove Listing", listing_path(listing), method: :delete, class: "border rounded btn btn-dark btn-sm px-3 ml-1"
+                    = link_to "Edit Listing", edit_listing_path(listing), class: "border rounded btn btn-dark btn-sm px-3 ml-1"
+                    = link_to "View Listing", listing_path(listing), class: "border rounded btn btn-dark btn-sm px-3 ml-1"

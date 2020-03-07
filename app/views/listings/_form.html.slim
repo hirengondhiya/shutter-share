@@ -1,0 +1,38 @@
+.my-3
+  .container
+    .row
+      .col-md-12
+        = form_for @listing do |f|
+          = render partial: "/partials/error_messages", locals: {item: @listing, item_name: "listing" }
+          .form-group
+            = f.label :title
+            = f.text_field :title, class: "form-control"
+          .form-group
+            = f.label :description
+            = f.text_area :description, class: "form-control"
+          .form-group
+            = f.label :category
+            - @categories.each do |option|
+              .form-check
+                = f.radio_button :category, option, class: "form-check-input"
+                = f.label "category_#{option}".to_sym, option, class: "form-check-label text-capitalize"
+          .form-group
+            = f.label :brand
+            = f.text_field :brand, class: "form-control"
+          .form-group
+            = f.label :model
+            = f.text_field :model, class: "form-control"
+          .form-group
+            = f.label :rate
+            = f.number_field :rate, class: "form-control", min: 1
+          = render partial: "listing_image_field", locals: {f: f, image_sym: :image1, is_image_attached: @listing.image1.attached?, image_field: @listing.image1, listing_id: @listing.id, image_index: 1}
+          = render partial: "listing_image_field", locals: {f: f, image_sym: :image2, is_image_attached: @listing.image2.attached?, image_field: @listing.image2, listing_id: @listing.id, image_index: 2}
+          = render partial: "listing_image_field", locals: {f: f, image_sym: :image3, is_image_attached: @listing.image3.attached?, image_field: @listing.image3, listing_id: @listing.id, image_index: 3}
+          = render partial: "listing_image_field", locals: {f: f, image_sym: :image4, is_image_attached: @listing.image4.attached?, image_field: @listing.image4, listing_id: @listing.id, image_index: 4}
+          = render partial: "listing_image_field", locals: {f: f, image_sym: :image5, is_image_attached: @listing.image5.attached?, image_field: @listing.image5, listing_id: @listing.id, image_index: 5}
+          .form-group.text-right.pt-3
+            - if show_listing_delete?
+              = link_to "View Listing", listing_path(@listing), class: "btn btn-dark px-5 ml-3"
+              = link_to "Remove Listing", listing_path(@listing), method: :delete, class: "btn btn-dark px-5 ml-3"
+            = f.submit "Save Listing", class: "btn btn-dark px-5 ml-3"
+          

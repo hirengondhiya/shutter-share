@@ -1,0 +1,344 @@
+- if @listing.owned_by? current_user
+  .container.mt-3
+    = link_to "Edit Listing", edit_listing_path(@listing), class: "border rounded border-light btn btn-dark px-3"
+    = link_to "Remove Listing", listing_path(@listing), method: :delete, class: "border rounded border-light btn btn-dark px-3 ml-2"
+    span.h5.ml-2 = "Status: #{@listing.status}"
+.my-4
+  .container
+    .row
+      .col-md-6.col-lg-9
+        #carousel-1.carousel.slide.bg-secondary data-ride="carousel"
+          .carousel-inner role="listbox" 
+            .carousel-item.active
+              .carousel-img-container.p-2
+                - if @listing.image1.attached?
+                  = image_tag @listing.image1, class: "d-block", alt: "listing image", style: "height:300px;"
+                - else
+                  img.d-block alt=("Slide Image") src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png" /                
+            - if @listing.image2.attached?
+              .carousel-item
+                .carousel-img-container
+                  = image_tag @listing.image2, class: "d-block", alt: "listing image", style: "height:300px;"
+            - if @listing.image3.attached?
+              .carousel-item
+                .carousel-img-container
+                  = image_tag @listing.image3, class: "d-block", alt: "listing image", style: "height:300px;"
+            - if @listing.image4.attached?
+              .carousel-item
+                .carousel-img-container
+                  = image_tag @listing.image4, class: "d-block", alt: "listing image", style: "height:300px;"
+            - if @listing.image5.attached?
+              .carousel-item
+                .carousel-img-container
+                  = image_tag @listing.image5, class: "d-block", alt: "listing image", style: "height:300px;"
+          div
+            a.carousel-control-prev data-slide="prev" href="#carousel-1" role="button" 
+              span.carousel-control-prev-icon
+              span.sr-only Previous
+            a.carousel-control-next data-slide="next" href="#carousel-1" role="button" 
+              span.carousel-control-next-icon
+              span.sr-only Next
+          ol.carousel-indicators
+            li.active data-slide-to="0" data-target="#carousel-1"
+            - if @listing.image2.attached?
+              li data-slide-to="1" data-target="#carousel-1"
+            - if @listing.image3.attached?
+              li data-slide-to="2" data-target="#carousel-1" 
+            - if @listing.image4.attached?
+              li data-slide-to="3" data-target="#carousel-1" 
+            - if @listing.image5.attached?
+              li data-slide-to="4" data-target="#carousel-1" 
+      .col-md-6.col-lg-3
+        .row.mb-1.position-relative
+          .col-lg-3.px-1
+            = render partial: "partials/profile_photo_50px", locals: {profile: @listing.profile}
+          .col.align-self-center.px-0.position-static
+            = link_to "", userprofile_public_path(@listing.profile), class: "stretched-link"
+            h5.text-dark.pt-1 = @listing.profile.name
+        .row.my-1
+          .col.align-content-center
+            p.mb-0
+              span
+                strong Brand: 
+              span.text-capitalize  = @listing.brand
+        .row.my-1
+          .col.align-content-center
+            p.mb-0
+              span
+                strong Model: 
+              span.text-capitalize  = @listing.model
+        .row.my-1
+          .col.align-content-center
+            p.mb-0
+              span
+                strong Category: 
+              span.text-capitalize  = @listing.category
+        .row.my-1
+          .col.align-content-center
+            p.mb-0
+              span
+                strong Rate: 
+              span.text-capitalize  = "$#{@listing.rate} per day"
+        .row.my-1
+          .col
+            p.d-flex.align-items-center.mb-0
+              i.fa.fa-map-marker.mr-1 style=("font-size: 25px;")
+              span.text-capitalize = if_empty_default_message @listing.profile.location
+        .row.my-1
+          .col.align-content-center
+            p.mb-0
+              span
+                strong Listed on: 
+              span = @listing.created_at.in_time_zone("Sydney").strftime("%D")
+        .row.my-1
+          .col.align-content-center
+            p.mb-0
+              span
+                strong Edited: 
+              span = @listing.updated_at.in_time_zone("Sydney").strftime("%D")
+                    - if !@listing.owned_by? current_user
+        - if !@listing.owned_by? current_user
+          .row.my-3
+            .col.text-center
+              a.border.rounded.border-light.btn.btn-dark.px-5 href="#"  Lease Now
+.container
+  .row.my-2
+    .col-lg-12
+      h2 = @listing.title
+    .col
+      p = @listing.description
+    .col-lg-12
+      h3 Requests Sent
+    .col-lg-12
+      .row.mt-3.p-3.bg-light
+        .col-lg-10
+          h6 Request sent 5 days ago
+        .col-lg-2
+          = render partial: "partials/status_h6", locals: {status: "pending"}
+          h6.text-right.text-info
+            i.fa.fa-hourglass-1
+            strong Pending
+        .col-lg-12
+          p $ Total amount
+        .col-lg-3
+          p
+            strong> Pickup
+            | \: dd/mm/yyy
+        .col-lg-3
+          p
+            strong> Return
+            | \: dd/mm/yyy
+        .col
+          p
+        .col-lg-4.text-right
+          a.border.rounded.btn.btn-dark.btn-sm.px-3.ml-1 href="#"  Cancel
+          a.border.rounded.btn.btn-dark.btn-sm.px-3.ml-1 href="#"  Edit
+          a.border.rounded.btn.btn-dark.btn-sm.px-3.ml-1 href="#"  View
+      .row.mt-3.p-3.bg-light
+        .col-lg-10
+          h6 Request sent 5 days ago
+        .col-lg-2
+          h6.text-right.text-muted
+            i.typcn.typcn-cancel style=("font-size: 20px;") 
+            strong Cancelled
+        .col-lg-12
+          p $ Total amount
+        .col
+          p
+            strong> Pickup
+            | \: dd/mm/yyy
+        .col
+          p
+            strong> Return
+            | \: dd/mm/yyy
+        .col
+          p
+            strong> Cancelled
+            | \: dd/mm/yyy
+        .col-lg-4.text-right
+          a.border.rounded.btn.btn-dark.btn-sm.px-3.ml-1 href="#"  View
+      .row.mt-3.p-3.bg-light
+        .col-lg-10
+          h6 Request sent 5 days ago
+        .col-lg-2
+          h6.text-right.text-success
+            i.fa.fa-thumbs-up.text-green
+            strong  Accepted
+        .col-lg-12
+          p $ Total amount
+        .col
+          p
+            strong> Pickup
+            | \: dd/mm/yyy
+        .col
+          p
+            strong> Return
+            | \: dd/mm/yyy
+        .col
+          p
+            strong> Accepted
+            | \: dd/mm/yyy
+        .col-lg-4.text-right
+          a.border.rounded.btn.btn-dark.btn-sm.px-3.ml-1 href="#"  View
+      .row.mt-3.p-3.bg-light
+        .col-lg-10
+          h6 Request sent 5 days ago
+        .col-lg-2
+          h6.text-right.text-danger
+            i.fa.fa-thumbs-down.text-green
+            strong Rejected
+        .col-lg-12
+          p $ Total amount
+        .col
+          p
+            strong> Pickup
+            | \: dd/mm/yyy
+        .col
+          p
+            strong> Return
+            | \: dd/mm/yyy
+        .col
+          p
+            strong> Rejected
+            | \: dd/mm/yyy
+        .col-lg-4.text-right
+          a.border.rounded.btn.btn-dark.btn-sm.px-3.ml-1 href="#"  View
+    .col-lg-12
+      h3 Requests Received
+    .col-lg-12
+      .row.mt-3.p-3.bg-light
+        .col-lg-5
+          .row.mb-1.position-relative
+            .col-lg-2.px-1
+              img.border.rounded-circle.ml-2 src="538-200x200.jpg" width="50px" /
+            .col.align-self-center.px-0.position-static.pl-1
+              a.stretched-link href="#" 
+              h5.text-dark Lease_Requester
+        .col-lg-7.text-right.align-self-center
+          h5.text-dark
+            i.fa.fa-map-marker style=("font-size: 25px;") 
+            |  Requester Location
+        .col-lg-10
+          h6 Request sent 5 days ago
+        .col-lg-2
+          h6.text-right.text-muted
+            i.typcn.typcn-cancel style=("font-size: 20px;") 
+            strong Cancelled
+        .col-lg-12
+          p $ Total amount
+        .col-lg-3
+          p
+            strong> Pickup
+            | \: dd/mm/yyy
+        .col-lg-3
+          p
+            strong> Return
+            | \: dd/mm/yyy
+        .col
+          p
+            strong> Cancelled
+            | \: dd/mm/yyy
+        .col-lg-1.text-right
+          a.border.rounded.btn.btn-dark.btn-sm.px-3.ml-1 href="#"  View
+      .row.mt-3.p-3.bg-light
+        .col-lg-5
+          .row.mb-1.position-relative
+            .col-lg-2.px-1
+              img.border.rounded-circle.ml-2 src="538-200x200.jpg" width="50px" /
+            .col.align-self-center.px-0.position-static.pl-1
+              a.stretched-link href="#" 
+              h5.text-dark Lease_Requester
+        .col-lg-7.text-right.align-self-center
+          h5.text-dark
+            i.fa.fa-map-marker style=("font-size: 25px;") 
+            |  Requester Location
+        .col-lg-10
+          h6 Request sent 5 days ago
+        .col-lg-2
+          h6.text-right.text-info
+            i.fa.fa-hourglass-1
+            strong Pending
+        .col-lg-12
+          p $ Total amount
+        .col-lg-3
+          p
+            strong> Pickup
+            | \: dd/mm/yyy
+        .col-lg-3
+          p
+            strong> Return
+            | \: dd/mm/yyy
+        .col
+          p
+        .col-lg-3.text-right
+          a.border.rounded.btn.btn-dark.btn-sm.px-3.ml-1 href="#"  Reject
+          a.border.rounded.btn.btn-dark.btn-sm.px-3.ml-1 href="#"  Accept
+          a.border.rounded.btn.btn-dark.btn-sm.px-3.ml-1 href="#"  View
+      .row.mt-3.p-3.bg-light
+        .col-lg-5
+          .row.mb-1.position-relative
+            .col-lg-2.px-1
+              img.border.rounded-circle.ml-2 src="538-200x200.jpg" width="50px" /
+            .col.align-self-center.px-0.position-static.pl-1
+              a.stretched-link href="#" 
+              h5.text-dark Lease_Requester
+        .col-lg-7.text-right.align-self-center
+          h5.text-dark
+            i.fa.fa-map-marker style=("font-size: 25px;") 
+            |  Requester Location
+        .col-lg-10
+          h6 Request sent 5 days ago
+        .col-lg-2
+          h6.text-right.text-success
+            i.fa.fa-thumbs-up.text-green
+            strong  Accepted
+        .col-lg-12
+          p $ Total amount
+        .col-lg-3
+          p
+            strong> Pickup date
+            | \: dd/mm/yyy
+        .col-lg-3
+          p
+            strong> Return date
+            | \: dd/mm/yyy
+        .col
+          p
+            strong> Accepted
+            | \: dd/mm/yyy
+        .col-lg-1.text-right
+          a.border.rounded.btn.btn-dark.btn-sm.px-3.ml-1 href="#"  View
+      .row.mt-3.p-3.bg-light
+        .col-lg-5
+          .row.mb-1.position-relative
+            .col-lg-2.px-1
+              img.border.rounded-circle.ml-2 src="538-200x200.jpg" width="50px" /
+            .col.align-self-center.px-0.position-static.pl-1
+              a.stretched-link href="#" 
+              h5.text-dark Lease_Requester
+        .col-lg-7.text-right.align-self-center
+          h5.text-dark
+            i.fa.fa-map-marker style=("font-size: 25px;") 
+            |  Requester Location
+        .col-lg-10
+          h6 Request sent 5 days ago
+        .col-lg-2
+          h6.text-right.text-danger
+            i.fa.fa-thumbs-down.text-green
+            strong Rejected
+        .col-lg-12
+          p $ Total amount
+        .col-lg-3
+          p
+            strong> Pickup date
+            | \: dd/mm/yyy
+        .col-lg-3
+          p
+            strong> Return date
+            | \: dd/mm/yyy
+        .col
+          p
+            strong> Rejected
+            | \: dd/mm/yyy
+        .col-lg-1.text-right
+          a.border.rounded.btn.btn-dark.btn-sm.px-3.ml-1 href="#"  View
