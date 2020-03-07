@@ -1,4 +1,6 @@
 class ListingsController < ApplicationController
+    before_action :authenticate_user!, except: [:show, :index]
+
     before_action :set_listing, except: [:index, :new, :create, :show, :my]
     before_action :set_listing_all, only: [:show]
     before_action :set_categories, only: [:new, :edit, :destroy_image]
@@ -15,8 +17,10 @@ class ListingsController < ApplicationController
   
     # GET /listings/1
     def show
-      # When listing is disabled don't show it anyone else except the owner
-      if @listing.status == :deleted && !@listing.owned_by?(current_user)
+      # if listing is disabled  
+      #     when user is not logged in, don't show it 
+      #     when user is logged in, dont't show it if the current user is not listing owner
+      if @listing.status == "deleted"  && (current_user == nil || !@listing.owned_by?(current_user))
         redirect_to root_path, alert: "Could not find the listing."
       end  
     end

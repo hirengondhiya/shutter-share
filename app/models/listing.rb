@@ -13,7 +13,7 @@ class Listing < ApplicationRecord
   }
 
   def owned_by? user
-    user.profile && user.profile.id == self.profile_id
+    user && user.profile && user.profile.id == self.profile_id
   end
 
   validates :title, length: { minimum: 50 }
