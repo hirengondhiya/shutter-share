@@ -32,4 +32,6 @@ class Listing < ApplicationRecord
 
   # short hand queries to find listings that belong to a user profile
   scope :for_profile, ->(user_profile_id) { where("profile_id = ?", user_profile_id) }
+
+  has_many :requests # received
 end

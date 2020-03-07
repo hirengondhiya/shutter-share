@@ -13,5 +13,6 @@ class Profile < ApplicationRecord
             }, on: :update
 
   has_one_attached :picture
-  has_many :listings
+  has_many :listings # created by the user
+  has_many :requests # sent by the user
 end
