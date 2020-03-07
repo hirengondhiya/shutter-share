@@ -14,7 +14,7 @@
                 - if @listing.image1.attached?
                   = image_tag @listing.image1, class: "d-block", alt: "listing image", style: "height:300px;"
                 - else
-                  img.d-block alt=("Slide Image") src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png" /                
+                  = image_tag "placeholder.png", class: "d-block", alt: "listing image", style: "height:300px;"                
             - if @listing.image2.attached?
               .carousel-item
                 .carousel-img-container
