@@ -89,13 +89,13 @@
             p.mb-0
               span
                 strong Listed on: 
-              span = @listing.created_at.in_time_zone("Sydney").strftime("%D")
+              span = @listing.created_at.in_time_zone("Sydney").strftime("%d/%m/%Y")
         .row.my-1
           .col.align-content-center
             p.mb-0
               span
                 strong Edited: 
-              span = @listing.updated_at.in_time_zone("Sydney").strftime("%D")
+              span = @listing.updated_at.in_time_zone("Sydney").strftime("%d/%m/%Y")
                     - if !@listing.owned_by? current_user
         - if !@listing.owned_by? current_user
           .row.my-3
