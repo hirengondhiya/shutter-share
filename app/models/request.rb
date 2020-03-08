@@ -6,8 +6,6 @@ class Request < ApplicationRecord
   validate :start_date_after_today
   validate :end_date_after_start_date
 
-  has_many :request_statuses
-
   private
   def end_date_after_start_date
     return if end_date.blank? || start_date.blank?
