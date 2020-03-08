@@ -1,4 +1,4 @@
-class Request < ApplicationRecord
+class Lease_Request < ApplicationRecord
   belongs_to :profile
   belongs_to :listing
 

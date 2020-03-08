@@ -14,9 +14,9 @@ class Profile < ApplicationRecord
 
   has_one_attached :picture
   has_many :listings # created by the user
-  has_many :requests # sent by the user
+  has_many :lease_requests # sent by the user
 
-  def requests_received
-    Request.where(listing_id: self.listings.pluck(:id))
+  def lease_requests_received
+    Lease_Request.where(listing_id: self.listings.pluck(:id))
   end
 end
