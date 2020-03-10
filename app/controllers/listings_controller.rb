@@ -5,11 +5,6 @@ class ListingsController < ApplicationController
     before_action :set_listing_all, only: [:show]
     before_action :set_categories, only: [:new, :edit, :destroy_image]
   
-    # GET /listings
-    def index
-      @listings = Listing.all
-    end
-
     # GET /listings/my
     def my
       @listings = Listing.for_profile(current_user.profile.id)
@@ -42,7 +37,7 @@ class ListingsController < ApplicationController
         redirect_to @listing, notice: 'Listing was successfully created.'
       else
         set_categories
-        flas_alert_not_saved
+        flash_alert_not_saved
         render :new
       end
     end
@@ -53,7 +48,7 @@ class ListingsController < ApplicationController
             redirect_to edit_listing_path(@listing), notice: 'Listing was successfully updated.'
         else
             set_categories
-            flas_alert_not_saved
+            flash_alert_not_saved
             render :edit
         end  
     end
@@ -107,7 +102,7 @@ class ListingsController < ApplicationController
       end
       
       # To show alert when listing was not saved successfully.
-      def flas_alert_not_saved
+      def flash_alert_not_saved
         flash.now[:alert] = "Can not save listing. Please fix the errors to continue."
       end
 
