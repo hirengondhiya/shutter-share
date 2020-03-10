@@ -17,6 +17,6 @@ class Profile < ApplicationRecord
   has_many :lease_requests # sent by the user
 
   def lease_requests_received
-    Lease_Request.where(listing_id: self.listings.pluck(:id))
+    LeaseRequest.where(listing_id: self.listings.pluck(:id))
   end
 end
