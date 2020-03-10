@@ -2,6 +2,14 @@ class Lease_Request < ApplicationRecord
   belongs_to :profile
   belongs_to :listing
 
+  enum status: {
+    pending: 0,
+    cancelled: 1,
+    accepted: 2,
+    rejected: 3,
+    expired: 4
+  }
+
   validates :start_date, :end_date, presence: true
   validate :start_date_after_today
   validate :end_date_after_start_date
