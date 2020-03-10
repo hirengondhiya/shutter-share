@@ -91,12 +91,12 @@ class LeaseRequestsController < ApplicationController
 
     # To find lease request belonging to a listing created by current user
     def set_lease_request_for_listing_owner
-        @lease_request = current_user.profile.lease_requests_received.find(params[:id])
+        @lease_request = current_user.profile.lease_requests_received.find_by(id: params[:id])
     end
 
     # To find lease request sent by current user
     def set_lease_request_for_requester
-        @lease_request = current_user.profile.lease_requests.find(params[:id])
+        @lease_request = current_user.profile.lease_requests.find_by(id: params[:id])
     end
 
     # Redirect to home page for show, edit, update, destroy, accept, reject actions when lease request not found
