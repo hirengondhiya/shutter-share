@@ -6,6 +6,8 @@ class Lease_Request < ApplicationRecord
   validate :start_date_after_today
   validate :end_date_after_start_date
 
+  before_save :calculate
+
   private
   def end_date_after_start_date
     return if end_date.blank? || start_date.blank?
@@ -19,6 +21,13 @@ class Lease_Request < ApplicationRecord
 
     if start_date < Date.today
       errors.add(:start_date, "must be a future date")
+    end
+  end
+  def calculate
+    if self.valid?
+      self.duration = (self.end_date - self.start_date).to_i / 86400
+      self.rate = self.listing.rate
+      self.total = self.duration * self.rate
     end
   end
 end
