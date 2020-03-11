@@ -16,6 +16,10 @@ class LeaseRequest < ApplicationRecord
 
   before_save :calculate
 
+  def pending?
+    self.status == "pending"
+  end
+
   private
   def end_date_after_start_date
     return if end_date.blank? || start_date.blank?
