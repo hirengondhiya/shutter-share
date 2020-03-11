@@ -100,7 +100,7 @@
         - if !@listing.owned_by? current_user
           .row.my-3
             .col.text-center
-              a.border.rounded.border-light.btn.btn-dark.px-5 href="#"  Lease Now
+              a.border.rounded.border-light.btn.btn-dark.px-5 href=("#{new_lease_request_path(@listing)}")  Lease Now
 .container
   .row.my-2
     .col-lg-12
