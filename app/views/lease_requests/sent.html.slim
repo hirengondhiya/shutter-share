@@ -39,7 +39,7 @@
                                 p
                                     strong Return:
                                     span = date_in_au_form lease_request.end_date
-                            .col                                
+                            .col            
                                 p
                                   - if !lease_request.pending?
                                     strong.text-capitalize = "#{lease_request.status}: "
@@ -48,6 +48,6 @@
                                 - if lease_request.pending?
                                     = link_to "Cancel", lease_request_path(lease_request), method: :delete, class: "border rounded btn btn-dark btn-sm px-3 ml-1"
                                     = link_to "Edit", edit_lease_request_path(lease_request), class: " border rounded btn btn-dark btn-sm px-3 ml-1"
-                                = link_to "View", lease_request_path(lease_request), class: " border rounded btn btn-dark btn-sm px-3 ml-1"                            
+                                = link_to "View", lease_request_path(lease_request), class: " border rounded btn btn-dark btn-sm px-3 ml-1"              
   - else
     h2 Oh no! You have not started shutter sharing?
