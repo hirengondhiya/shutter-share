@@ -16,6 +16,17 @@ class Profile < ApplicationRecord
   has_many :listings # created by the user
   has_many :lease_requests # sent by the user
 
+  # returns true if the current profile sent at least one lease request for a given listing
+  def lease_request_sent_for_listing? listing_id
+    self.lease_requests.find_by(listing_id: listing_id) != nil
+  end
+
+  # returns an array of lease_requests sent by current profile for a given listing
+  def lease_requests_sent_for_listing listing_id
+    self.lease_requests.where(listing_id: listing_id)
+  end
+
+  # returns an array of lease_requests received on all listings
   def lease_requests_received
     LeaseRequest.where(listing_id: self.listings.pluck(:id))
   end
