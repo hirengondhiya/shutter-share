@@ -1,0 +1,51 @@
+.container.my-3
+  - if current_user.profile.lease_requests.exists?
+    h2 Sent lease requests
+    - current_user.profile.lease_requests.each do |lease_request|
+        .p-2.my-2
+            .container.bg-light.py-3
+                .row
+                    .col-12.col-sm-5.col-md-3.col-lg-2.text-left.align-self-start
+                        a href=("#{listing_path lease_request.listing}")
+                            - if lease_request.listing.image1.attached?
+                                = image_tag lease_request.listing.image1, class: "rounded img-fluid", alt: "listing image", loading:"lazy", style: "width: 100%;"
+                            - else
+                                = image_tag "placeholder.png", class: "rounded img-fluid", alt: "listing image", loading:"lazy", style: "width: 100%;"
+                    .col-md-6.col-lg-10
+                        .row
+                            .col-lg-10
+                                a.text-dark href=("#{listing_path lease_request.listing}")
+                                    h3.text-truncate = lease_request.listing.title
+                            .col-lg-2
+                                p.text-right = render partial:"partials/status_h6", locals: {status: lease_request.status}
+                            .col-lg-3
+                                p
+                                  strong Listed by: 
+                                  a class="text-dark" href=("#{userprofile_public_path(lease_request.listing.profile)}")
+                                    span = if_empty_default_message lease_request.listing.profile.name
+                            .col-lg-3
+                                p = dollar_pd lease_request.rate
+                            .col-lg-2
+                                p.text-capitalize = if_empty_default_message lease_request.listing.profile.location
+                            .col-lg-12
+                                h6
+                                    strong Sent: 
+                                    span = "#{time_ago_in_words lease_request.created_at} ago"
+                            .col
+                                p
+                                    strong Pickup: 
+                                    span = date_in_au_form lease_request.start_date
+                            .col
+                                p
+                                    strong Return:
+                                    span = date_in_au_form lease_request.end_date
+                            .col                                
+                                p
+                                  - if !lease_request.pending?
+                                    strong.text-capitalize = "#{lease_request.status}: "
+                                    span = date_in_au_form lease_request.updated_at
+                            .col-lg-4.text-right
+                                - if lease_request.pending?
+                                    = link_to "Cancel", lease_request_path(lease_request), method: :delete, class: "border rounded btn btn-dark btn-sm px-3 ml-1"
+                                    = link_to "Edit", edit_lease_request_path(lease_request), class: " border rounded btn btn-dark btn-sm px-3 ml-1"
+                                = link_to "View", lease_request_path(lease_request), class: " border rounded btn btn-dark btn-sm px-3 ml-1"                            
