@@ -14,10 +14,10 @@ Rails.application.routes.draw do
   resources :listings, except: [:index]
   delete '/listings/:id/image/:index', to: 'listings#destroy_image', as: 'delete_listing_image'
 
-  resources :lease_requests, except: [:new, :index]
-  get '/lease_requests/new/:listing_id', to: 'lease_requests#new', as: 'new_lease_request'
   get '/lease_requests/sent', to: 'lease_requests#sent', as: 'sent_lease_requests'
   get '/lease_requests/received', to: 'lease_requests#received', as: 'received_lease_requests'
+  resources :lease_requests, except: [:new, :index]
+  get '/lease_requests/new/:listing_id', to: 'lease_requests#new', as: 'new_lease_request'
   patch '/lease_requests/:id/accept', to: 'lease_requests#accept', as: 'accept_lease_request'
   patch '/lease_requests/:id/reject', to: 'lease_requests#reject', as: 'reject_lease_request'
 end
