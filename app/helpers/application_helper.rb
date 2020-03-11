@@ -36,9 +36,6 @@ module ApplicationHelper
         }[status_name.to_sym][type]
     end
 
-    def status_color status
-    end
-
     def dollar_pd num
         "$#{num} per day"
     end
