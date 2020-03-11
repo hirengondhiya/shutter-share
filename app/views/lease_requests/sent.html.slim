@@ -7,10 +7,7 @@
                 .row
                     .col-12.col-sm-5.col-md-3.col-lg-2.text-left.align-self-start
                         a href=("#{listing_path lease_request.listing}")
-                            - if lease_request.listing.image1.attached?
-                                = image_tag lease_request.listing.image1, class: "rounded img-fluid", alt: "listing image", loading:"lazy", style: "width: 100%;"
-                            - else
-                                = image_tag "placeholder.png", class: "rounded img-fluid", alt: "listing image", loading:"lazy", style: "width: 100%;"
+                            = render partial: "partials/listing_image_fluid", locals: {listing: lease_request.listing}
                     .col-md-6.col-lg-10
                         .row
                             .col-lg-10

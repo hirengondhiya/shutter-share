@@ -1,0 +1,4 @@
+- if listing.image1.attached?
+    = image_tag listing.image1, loading:"lazy", style:"width: 100%;", class: "rounded img-fluid"
+- else
+    = image_tag "placeholder.png", loading:"lazy", style:"width: 100%;", class: "rounded img-fluid"
