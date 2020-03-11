@@ -51,4 +51,8 @@ module ApplicationHelper
     def date_in_au_form date
         date.in_time_zone("Sydney").strftime("%d/%m/%Y")
     end
+
+    def current_user_profile_updated?
+        current_user && current_user.profile && current_user.profile.name
+    end
 end
