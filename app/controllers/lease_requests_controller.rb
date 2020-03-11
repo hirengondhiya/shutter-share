@@ -42,32 +42,17 @@ class LeaseRequestsController < ApplicationController
 
     # PATCH /leas_requests/:id/accept
     def accept
-        @lease_request.status = :accepted
-        if @lease_request.save
-            render lease_request_path(@lease_request), "Lease request accepted."
-        else
-            render lease_request_path(@lease_request), "Can not accept lease request due to application error."
-        end
+        set_lease_request_status "accepted"
     end
 
     # PATCH /leas_requests/:id/reject
     def reject
-        @lease_request.status = :rejected
-        if @lease_request.save
-            render lease_request_path(@lease_request), "Lease request accepted."
-        else
-            render lease_request_path(@lease_request), "Can not accept lease request due to application error."
-        end
+        set_lease_request_status "rejected"
     end
 
     # DELETE /leas_requests/:id
     def destroy
-        @lease_request.status = :cancelled
-        if @lease_request.save
-            render lease_request_path(@lease_request), "Lease request cancelled."
-        else
-            render lease_request_path(@lease_request), "Can not cancel lease request due to application error."
-        end
+        set_lease_request_status "cancelled"
     end
 
     # GET /leas_requests/sent
@@ -123,4 +108,23 @@ class LeaseRequestsController < ApplicationController
     # def lease_request_params
     #     params.require(:lease_request).permit(:start_date, :end_date)
     # end
+
+    def render_show_with_msg flash_type, flash_msg
+        flash.now[flash_type] = flash_msg
+        render :show
+    end
+
+    def set_lease_request_status status
+        messages = {
+            "cancelled": "cancel",
+            "accepted": "accept",
+            "rejected": "reject"
+        }
+        @lease_request.status = status
+        if @lease_request.save
+            render_show_with_msg :notice, "Lease request  was #{status} successfully."
+        else
+            render_show_with_msg :alert, "Can not #{messages[status]} lease request due to application error."
+        end
+    end
 end
