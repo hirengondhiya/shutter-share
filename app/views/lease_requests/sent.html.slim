@@ -21,7 +21,7 @@
                             .col-lg-3
                                 p
                                   strong Listed by: 
-                                  a class="text-dark" href=("#{userprofile_public_path(lease_request.listing.profile)}")
+                                  a class="text-info" href=("#{userprofile_public_path(lease_request.listing.profile)}")
                                     span = if_empty_default_message lease_request.listing.profile.name
                             .col-lg-3
                                 p = dollar_pd lease_request.rate
