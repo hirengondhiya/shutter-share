@@ -52,69 +52,33 @@ div
             .col-lg-2.align-self-end
               p = "#{time_ago_in_words listing.updated_at} ago"
 .container.mt-5
-  h3 Recent transactions
-.p-2
-  .container.bg-light.pt-2
-    .row
-      .col-12.col-sm-5.col-md-3.col-lg-2.text-left.align-self-start
-        a href="#" 
-          img.rounded.img-fluid loading="lazy" src="/assets/img/948-200x200.jpg" style=("width: 100%;") /
-      .col-12.col-sm-7.col-md-9.col-lg-10
-        .row
-          .col-lg-12
-            a.text-dark href="#" 
-            h3.text-truncate Product title
-          .col-lg-6
-            a.text-dark href="#" 
-              | Leased from 
-              strong listing_owner 
-              | days ago
-.p-2
-  .container.bg-light.pt-2
-    .row
-      .col-12.col-sm-5.col-md-3.col-lg-2.text-left.align-self-start
-        a href="#" 
-          img.rounded.img-fluid loading="lazy" src="/assets/img/948-200x200.jpg" style=("width: 100%;") /
-      .col-12.col-sm-7.col-md-9.col-lg-10
-        .row
-          .col-lg-12
-            a.text-dark href="#" 
-            h3.text-truncate Product title
-          .col-lg-6
-            a.text-dark href="#" 
-              | Leased from 
-              strong listing_owner 
-              | dd/mm/yyyy
-.p-2
-  .container.bg-light.pt-2
-    .row
-      .col-12.col-sm-5.col-md-3.col-lg-2.text-left.align-self-start
-        a href="#" 
-          img.rounded.img-fluid loading="lazy" src="/assets/img/948-200x200.jpg" style=("width: 100%;") /
-      .col-12.col-sm-7.col-md-9.col-lg-10
-        .row
-          .col-lg-12
-            a.text-dark href="#" 
-            h3.text-truncate Product title
-          .col-lg-6
-            a.text-dark href="#" 
-              | Leased to 
-              strong lease_requester
-              |  on 
-              strong dd/mm/yyyy
-.p-2
-  .container.bg-light.pt-2
-    .row
-      .col-12.col-sm-5.col-md-3.col-lg-2.text-left.align-self-start
-        a href="#" 
-          img.rounded.img-fluid loading="lazy" src="/assets/img/948-200x200.jpg" style=("width: 100%;") /
-      .col-12.col-sm-7.col-md-9.col-lg-10
-        .row
-          .col-lg-12
-            a.text-dark href="#" 
-            h3.text-truncate Product title
-          .col-lg-6
-            a.text-dark href="#" 
-              | Leased to&nbsp;
-              strong lease_requester
-              |  5 days ago
+  - if current_user.profile.transactions.exists?  
+    h3 Recent transactions
+    - current_user.profile.transactions.each do |lease_request|
+      .p-2
+        .container.bg-light.pt-2
+          .row
+            .col-12.col-sm-5.col-md-3.col-lg-2.text-left.align-self-start
+              a href=("#{listing_path lease_request.listing}")
+                  - if lease_request.listing.image1.attached?
+                      = image_tag lease_request.listing.image1, class: "rounded img-fluid", alt: "listing image", loading:"lazy", style: "width: 100%;"
+                  - else
+                      = image_tag "placeholder.png", class: "rounded img-fluid", alt: "listing image", loading:"lazy", style: "width: 100%;"
+            .col-12.col-sm-7.col-md-9.col-lg-10
+              .row
+                .col-lg-12
+                  a.text-dark href=("#{listing_path lease_request.listing}") 
+                      h3.text-truncate = lease_request.listing.title
+                .col-lg-6
+                  p
+                    span Leased 
+                    - if lease_request.listing.owned_by? current_user
+                      span to 
+                      = link_to lease_request.profile.name, userprofile_public_path(lease_request.profile), class: "text-info"
+                    - else
+                      span from 
+                      = link_to lease_request.listing.profile.name, userprofile_public_path(lease_request.listing.profile), class: "text-info"
+                    | 
+                    span = " #{time_ago_in_words lease_request.updated_at} ago"
+  - else
+    h3 No transactions found.
