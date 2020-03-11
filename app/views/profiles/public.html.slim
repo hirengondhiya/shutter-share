@@ -12,73 +12,33 @@ div
   h3 Active listings
 
 - @active_listings.each do | listing | 
-  .p-2
-    .container.bg-light.pt-2
-      .row.position-relative
-        .col-12.col-sm-5.col-md-3.col-lg-2.text-left.align-self-start.position-static
-          a.stretched-link href=("#{listing_path(listing)}")
-            - if listing.image1.attached?
-              = image_tag listing.image1, class: "rounded img-fluid", loading:"lazy", style:"width: 100%;"
-            - else
-              = image_tag "placeholder.png", class: "rounded img-fluid", loading:"lazy", style:"width: 100%;"
-        .col-12.col-sm-7.col-md-9.col-lg-10
-          .row
-            .col-lg-10
-              .row
-                .col
-                  h3.text-truncate = listing.title
-              .row
-                .col
-                  span
-                    strong Brand: 
-                  span.text-capitalize  = listing.brand
-                .col
-                  span
-                    strong Model: 
-                  span.text-capitalize  = listing.model
-                .col
-                  span
-                    strong Category: 
-                  span.text-capitalize  = listing.category
-                .col
-                  span
-                    strong Rate: 
-                  span.text-capitalize  = "$#{listing.rate} per day"
-            .col-lg-2
-              p.text-capitalize = listing.profile.location
-          .row
-            .col-lg-10.offset-0
-              p = listing.description
-            .col-lg-2.align-self-end
-              p = "#{time_ago_in_words listing.updated_at} ago"
-.container.mt-5
-  - if current_user.profile.transactions.exists?  
+  = render partial: "partials/listing_clickable", locals: {listing: listing}
+- if current_user.profile.transactions.exists?
+  .container.mt-5
     h3 Recent transactions
-    - current_user.profile.transactions.each do |lease_request|
-      .p-2
-        .container.bg-light.pt-2
-          .row
-            .col-12.col-sm-5.col-md-3.col-lg-2.text-left.align-self-start
-              a href=("#{listing_path lease_request.listing}")
-                  - if lease_request.listing.image1.attached?
-                      = image_tag lease_request.listing.image1, class: "rounded img-fluid", alt: "listing image", loading:"lazy", style: "width: 100%;"
+  - current_user.profile.transactions.each do |lease_request|
+    .p-2.my-2
+      .container.bg-light.pt-2
+        .row
+          .col-12.col-sm-5.col-md-3.col-lg-2.text-left.align-self-start
+            a href=("#{listing_path lease_request.listing}")
+              = render partial: "partials/listing_image_fluid", locals: {listing: lease_request.listing}
+          .col-12.col-sm-7.col-md-9.col-lg-10
+            .row
+              .col-lg-12
+                a.text-dark href=("#{listing_path lease_request.listing}") 
+                  h3.text-truncate = lease_request.listing.title
+              .col-lg-6
+                p
+                  span Leased 
+                  - if lease_request.listing.owned_by? current_user
+                    span to 
+                    = link_to lease_request.profile.name, userprofile_public_path(lease_request.profile), class: "text-info"
                   - else
-                      = image_tag "placeholder.png", class: "rounded img-fluid", alt: "listing image", loading:"lazy", style: "width: 100%;"
-            .col-12.col-sm-7.col-md-9.col-lg-10
-              .row
-                .col-lg-12
-                  a.text-dark href=("#{listing_path lease_request.listing}") 
-                      h3.text-truncate = lease_request.listing.title
-                .col-lg-6
-                  p
-                    span Leased 
-                    - if lease_request.listing.owned_by? current_user
-                      span to 
-                      = link_to lease_request.profile.name, userprofile_public_path(lease_request.profile), class: "text-info"
-                    - else
-                      span from 
-                      = link_to lease_request.listing.profile.name, userprofile_public_path(lease_request.listing.profile), class: "text-info"
-                    | 
-                    span = " #{time_ago_in_words lease_request.updated_at} ago"
-  - else
+                    span from 
+                    = link_to lease_request.listing.profile.name, userprofile_public_path(lease_request.listing.profile), class: "text-info"
+                  | 
+                  span = " #{time_ago_in_words lease_request.updated_at} ago"
+- else
+  .container.mt-5
     h3 No transactions found.
