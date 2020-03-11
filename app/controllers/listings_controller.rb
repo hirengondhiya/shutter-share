@@ -7,7 +7,7 @@ class ListingsController < ApplicationController
   
     # GET /listings/my
     def my
-      @listings = Listing.for_profile(current_user.profile.id)
+      @listings = Listing.for_profile(current_user.profile)
     end
   
     # GET /listings/1
