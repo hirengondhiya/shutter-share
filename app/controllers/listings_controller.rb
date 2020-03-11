@@ -22,7 +22,11 @@ class ListingsController < ApplicationController
   
     # GET /listings/new
     def new
-      @listing = Listing.new(profile_id: current_user.profile.id)
+      if helpers.current_user_profile_updated?
+        @listing = Listing.new(profile_id: current_user.profile.id)
+      else
+        redirect_to edit_myprofile_path, alert: "Please update your details before creating a listing."
+      end
     end
   
     # GET /listings/1/edit
@@ -127,8 +131,6 @@ class ListingsController < ApplicationController
           return false
         end
         return true
-      end
-
-      
+      end    
 end
   
