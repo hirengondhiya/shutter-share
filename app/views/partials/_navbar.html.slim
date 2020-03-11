@@ -21,8 +21,8 @@ nav.navbar.navbar-light.navbar-expand-lg.bg-dark.navigation-clean-button.navbar-
             .dropdown-divider role="presentation"
             h6.dropdown-header role="presentation"
               strong Requests
-            a.dropdown-item href="#" role="presentation"  Sent
-            a.dropdown-item href="#" role="presentation"  Received
+            a.dropdown-item href=("#{sent_lease_requests_path}") role="presentation"  Sent
+            a.dropdown-item href=("#{received_lease_requests_path}") role="presentation"  Received
             .dropdown-divider role="presentation"
             = link_to "My Listings", my_listings_path, role: "presentation", class: "dropdown-item"
         li.nav-item role="presentation"
