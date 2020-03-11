@@ -42,8 +42,8 @@
                                     span = date_in_au_form lease_request.updated_at
                             .col-lg-4.text-right
                                 - if lease_request.pending?
-                                    = link_to "Accept", accept_lease_request_path(lease_request), method: :delete, class: "border rounded btn btn-dark btn-sm px-3 ml-1"
-                                    = link_to "Reject", reject_lease_request_path(lease_request), class: " border rounded btn btn-dark btn-sm px-3 ml-1"
+                                    = link_to "Accept", accept_lease_request_path(lease_request), method: :patch, class: "border rounded btn btn-dark btn-sm px-3 ml-1"
+                                    = link_to "Reject", reject_lease_request_path(lease_request), method: :patch, class: " border rounded btn btn-dark btn-sm px-3 ml-1"
                                 = link_to "View", lease_request_path(lease_request), class: " border rounded btn btn-dark btn-sm px-3 ml-1"
   - else
     h2 Oh no! You don't have any requests on your listings. Are you sure you have some listings?
