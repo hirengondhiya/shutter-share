@@ -107,238 +107,82 @@
       h2 = @listing.title
     .col
       p = @listing.description
-    .col-lg-12
-      h3 Requests Sent
-    .col-lg-12
-      .row.mt-3.p-3.bg-light
-        .col-lg-10
-          h6 Request sent 5 days ago
-        .col-lg-2
-          = render partial: "partials/status_h6", locals: {status: "pending"}
-          h6.text-right.text-info
-            i.fa.fa-hourglass-1
-            strong Pending
-        .col-lg-12
-          p $ Total amount
-        .col-lg-3
-          p
-            strong> Pickup
-            | \: dd/mm/yyy
-        .col-lg-3
-          p
-            strong> Return
-            | \: dd/mm/yyy
-        .col
-          p
-        .col-lg-4.text-right
-          a.border.rounded.btn.btn-dark.btn-sm.px-3.ml-1 href="#"  Cancel
-          a.border.rounded.btn.btn-dark.btn-sm.px-3.ml-1 href="#"  Edit
-          a.border.rounded.btn.btn-dark.btn-sm.px-3.ml-1 href="#"  View
-      .row.mt-3.p-3.bg-light
-        .col-lg-10
-          h6 Request sent 5 days ago
-        .col-lg-2
-          h6.text-right.text-muted
-            i.typcn.typcn-cancel style=("font-size: 20px;") 
-            strong Cancelled
-        .col-lg-12
-          p $ Total amount
-        .col
-          p
-            strong> Pickup
-            | \: dd/mm/yyy
-        .col
-          p
-            strong> Return
-            | \: dd/mm/yyy
-        .col
-          p
-            strong> Cancelled
-            | \: dd/mm/yyy
-        .col-lg-4.text-right
-          a.border.rounded.btn.btn-dark.btn-sm.px-3.ml-1 href="#"  View
-      .row.mt-3.p-3.bg-light
-        .col-lg-10
-          h6 Request sent 5 days ago
-        .col-lg-2
-          h6.text-right.text-success
-            i.fa.fa-thumbs-up.text-green
-            strong  Accepted
-        .col-lg-12
-          p $ Total amount
-        .col
-          p
-            strong> Pickup
-            | \: dd/mm/yyy
-        .col
-          p
-            strong> Return
-            | \: dd/mm/yyy
-        .col
-          p
-            strong> Accepted
-            | \: dd/mm/yyy
-        .col-lg-4.text-right
-          a.border.rounded.btn.btn-dark.btn-sm.px-3.ml-1 href="#"  View
-      .row.mt-3.p-3.bg-light
-        .col-lg-10
-          h6 Request sent 5 days ago
-        .col-lg-2
-          h6.text-right.text-danger
-            i.fa.fa-thumbs-down.text-green
-            strong Rejected
-        .col-lg-12
-          p $ Total amount
-        .col
-          p
-            strong> Pickup
-            | \: dd/mm/yyy
-        .col
-          p
-            strong> Return
-            | \: dd/mm/yyy
-        .col
-          p
-            strong> Rejected
-            | \: dd/mm/yyy
-        .col-lg-4.text-right
-          a.border.rounded.btn.btn-dark.btn-sm.px-3.ml-1 href="#"  View
-    .col-lg-12
-      h3 Requests Received
-    .col-lg-12
-      .row.mt-3.p-3.bg-light
-        .col-lg-5
-          .row.mb-1.position-relative
-            .col-lg-2.px-1
-              img.border.rounded-circle.ml-2 src="538-200x200.jpg" width="50px" /
-            .col.align-self-center.px-0.position-static.pl-1
-              a.stretched-link href="#" 
-              h5.text-dark Lease_Requester
-        .col-lg-7.text-right.align-self-center
-          h5.text-dark
-            i.fa.fa-map-marker style=("font-size: 25px;") 
-            |  Requester Location
-        .col-lg-10
-          h6 Request sent 5 days ago
-        .col-lg-2
-          h6.text-right.text-muted
-            i.typcn.typcn-cancel style=("font-size: 20px;") 
-            strong Cancelled
-        .col-lg-12
-          p $ Total amount
-        .col-lg-3
-          p
-            strong> Pickup
-            | \: dd/mm/yyy
-        .col-lg-3
-          p
-            strong> Return
-            | \: dd/mm/yyy
-        .col
-          p
-            strong> Cancelled
-            | \: dd/mm/yyy
-        .col-lg-1.text-right
-          a.border.rounded.btn.btn-dark.btn-sm.px-3.ml-1 href="#"  View
-      .row.mt-3.p-3.bg-light
-        .col-lg-5
-          .row.mb-1.position-relative
-            .col-lg-2.px-1
-              img.border.rounded-circle.ml-2 src="538-200x200.jpg" width="50px" /
-            .col.align-self-center.px-0.position-static.pl-1
-              a.stretched-link href="#" 
-              h5.text-dark Lease_Requester
-        .col-lg-7.text-right.align-self-center
-          h5.text-dark
-            i.fa.fa-map-marker style=("font-size: 25px;") 
-            |  Requester Location
-        .col-lg-10
-          h6 Request sent 5 days ago
-        .col-lg-2
-          h6.text-right.text-info
-            i.fa.fa-hourglass-1
-            strong Pending
-        .col-lg-12
-          p $ Total amount
-        .col-lg-3
-          p
-            strong> Pickup
-            | \: dd/mm/yyy
-        .col-lg-3
-          p
-            strong> Return
-            | \: dd/mm/yyy
-        .col
-          p
-        .col-lg-3.text-right
-          a.border.rounded.btn.btn-dark.btn-sm.px-3.ml-1 href="#"  Reject
-          a.border.rounded.btn.btn-dark.btn-sm.px-3.ml-1 href="#"  Accept
-          a.border.rounded.btn.btn-dark.btn-sm.px-3.ml-1 href="#"  View
-      .row.mt-3.p-3.bg-light
-        .col-lg-5
-          .row.mb-1.position-relative
-            .col-lg-2.px-1
-              img.border.rounded-circle.ml-2 src="538-200x200.jpg" width="50px" /
-            .col.align-self-center.px-0.position-static.pl-1
-              a.stretched-link href="#" 
-              h5.text-dark Lease_Requester
-        .col-lg-7.text-right.align-self-center
-          h5.text-dark
-            i.fa.fa-map-marker style=("font-size: 25px;") 
-            |  Requester Location
-        .col-lg-10
-          h6 Request sent 5 days ago
-        .col-lg-2
-          h6.text-right.text-success
-            i.fa.fa-thumbs-up.text-green
-            strong  Accepted
-        .col-lg-12
-          p $ Total amount
-        .col-lg-3
-          p
-            strong> Pickup date
-            | \: dd/mm/yyy
-        .col-lg-3
-          p
-            strong> Return date
-            | \: dd/mm/yyy
-        .col
-          p
-            strong> Accepted
-            | \: dd/mm/yyy
-        .col-lg-1.text-right
-          a.border.rounded.btn.btn-dark.btn-sm.px-3.ml-1 href="#"  View
-      .row.mt-3.p-3.bg-light
-        .col-lg-5
-          .row.mb-1.position-relative
-            .col-lg-2.px-1
-              img.border.rounded-circle.ml-2 src="538-200x200.jpg" width="50px" /
-            .col.align-self-center.px-0.position-static.pl-1
-              a.stretched-link href="#" 
-              h5.text-dark Lease_Requester
-        .col-lg-7.text-right.align-self-center
-          h5.text-dark
-            i.fa.fa-map-marker style=("font-size: 25px;") 
-            |  Requester Location
-        .col-lg-10
-          h6 Request sent 5 days ago
-        .col-lg-2
-          h6.text-right.text-danger
-            i.fa.fa-thumbs-down.text-green
-            strong Rejected
-        .col-lg-12
-          p $ Total amount
-        .col-lg-3
-          p
-            strong> Pickup date
-            | \: dd/mm/yyy
-        .col-lg-3
-          p
-            strong> Return date
-            | \: dd/mm/yyy
-        .col
-          p
-            strong> Rejected
-            | \: dd/mm/yyy
-        .col-lg-1.text-right
-          a.border.rounded.btn.btn-dark.btn-sm.px-3.ml-1 href="#"  View
+    - if current_user.profile.lease_request_sent_for_listing? @listing
+      .col-lg-12
+        h3 Requests Sent
+      .col-lg-12
+        - current_user.profile.lease_requests_sent_for_listing(@listing).each do |lease_request|        
+          .row.mt-3.p-3.bg-light
+            .col-lg-10
+              h6
+                strong Request sent: 
+                span = "#{time_ago_in_words lease_request.created_at} ago"
+            .col-lg-2
+              p.text-right
+                = render partial: "partials/status_h6", locals: {status: lease_request.status}
+            .col-lg-12
+              p 
+                span
+                  strong Total amount: 
+                span
+                  = prefix_s lease_request.total
+            .col-lg-3
+              p
+                strong Pickup:  
+                span = date_in_au_form lease_request.start_date
+            .col-lg-3
+              p
+                strong Return: 
+                span = date_in_au_form lease_request.end_date
+            .col
+              p
+            .col-lg-4.text-right
+              - if lease_request.pending?
+                = link_to "Cancel", lease_request_path(lease_request), method: :delete, class: "border rounded btn btn-dark btn-sm px-3 ml-1"
+                = link_to "Edit", edit_lease_request_path(lease_request), class: "border rounded btn btn-dark btn-sm px-3 ml-1"
+              = link_to "View", lease_request_path(lease_request), class: "border rounded btn btn-dark btn-sm px-3 ml-1"
+    - if (@listing.owned_by? current_user) && @listing.lease_requests.exists?
+      .col-lg-12
+        h3 Requests Received
+      .col-lg-12
+        - @listing.lease_requests.each do |lease_request|
+          .row.mt-3.p-3.bg-light
+            .col-lg-5
+              .row.mb-1.position-relative
+                .col-lg-2.px-1
+                  = render partial: "partials/profile_photo_50px", locals: {profile: lease_request.profile}
+                .col.align-self-center.px-0.position-static.pl-1
+                  = link_to "", userprofile_public_path(lease_request.profile), class: "stretched-link"
+                  h5.text-dark = lease_request.profile.name
+            .col-lg-7.text-right.align-self-center
+              h5.text-dark.text-capitalize
+                i.fa.fa-map-marker style=("font-size: 20px;") 
+                = " #{lease_request.profile.location}"
+            .col-lg-10
+              h6.text-capitalize
+                strong Request sent: 
+                span = "#{time_ago_in_words lease_request.created_at} ago"
+            .col-lg-2
+              p.text-right = render partial: "partials/status_h6", locals: {status: lease_request.status}
+            .col-lg-12
+              p
+                strong Total amount: 
+                span = prefix_s lease_request.total
+            .col-lg-3
+              p
+                strong Pickup: 
+                span = date_in_au_form lease_request.start_date
+            .col-lg-3
+              p
+                strong Return: 
+                span = date_in_au_form lease_request.end_date
+            .col-lg-3
+              p
+                - if !lease_request.pending?
+                  strong.text-capitalize = "#{lease_request.status}: "
+                  span = date_in_au_form lease_request.updated_at
+            .col.text-right
+              - if lease_request.pending?
+                = link_to "Accept", accept_lease_request_path(lease_request), method: :patch, class:"border rounded btn btn-dark btn-sm px-3 ml-1"
+                = link_to "Reject", reject_lease_request_path(lease_request), method: :patch, class:"border rounded btn btn-dark btn-sm px-3 ml-1"
+              = link_to "View", lease_request_path(lease_request), class:"border rounded btn btn-dark btn-sm px-3 ml-1"
