@@ -11,18 +11,47 @@ module ApplicationHelper
         params[:controller] == "listings" && (params[:action] == "edit" || params[:action] == "show")
     end
 
-    def status_icon status
-        case status
-        when "cancelled"
-            "fa fa-exclamation-circle"
-        when "rejected"
-            "fa fa-thumbs-down text-green"
-        when "pending"
-            "fa fa-hourglass-1"
-        when "accepted"
-            "fa fa-thumbs-up text-green"
-        else
-            ""
-        end
+    def get_class_for status_name, type
+        {
+            cancelled: {
+                icon: "fa fa-exclamation-circle",
+                color: "text-muted"
+            },
+            rejected: {
+                icon: "fa fa-thumbs-down",
+                color: "text-danger"
+            },
+            pending: {
+                icon: "fa fa-hourglass-1",
+                color: "text-info"
+            },
+            expired: {
+                icon: "fa fa-hourglass-3",
+                color: "text-warning"
+            },
+            accepted: {
+                icon: "fa fa-thumbs-up",
+                color: "text-success"
+            }
+        }[status_name.to_sym][type]
+    end
+
+    def status_color status
+    end
+
+    def dollar_pd num
+        "$#{num} per day"
+    end
+
+    def in_days num
+        "#{num} day#{num.to_i > 1? 's': ''}"
+    end
+
+    def prefix_s num
+        "$#{num}"
+    end
+
+    def date_in_au_form date
+        date.in_time_zone("Sydney").strftime("%d/%m/%Y")
     end
 end
