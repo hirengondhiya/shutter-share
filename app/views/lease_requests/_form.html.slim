@@ -21,7 +21,7 @@
           .form-group
             label for="duration" 
               strong Duration
-            input#duration.form-control-plaintext readonly="" type="text" value=("x Days") /
+            input#duration.form-control-plaintext readonly="" type="text" value=("#{@lease_request.id ? @lease_request.duration : 'x Days'}") /
           .form-group
             label for="rate" 
               strong Listing Rate
@@ -29,16 +29,16 @@
           .form-group
             label for="total_amount" 
               strong Total
-            input#total_amount.form-control-plaintext readonly="" type="text" value=("$ amount") /
+            input#total_amount.form-control-plaintext readonly="" type="text" value=("#{@lease_request.id ? @lease_request.total : '$ amount'}") /
           - if params[:action] == "edit"
             .form-group
                 label for="created_at" 
                     strong Created
-                input#created_at.form-control-plaintext readonly="" type="text" value="dd/mm/yyyy" /
+                input#created_at.form-control-plaintext readonly="" type="text" value=("#{date_in_au_form @lease_request.created_at}") /
             .form-group
                 label for="modified_at" 
                     strong Last edited
-                input#modified_at.form-control-plaintext readonly="" type="text" value="dd/mm/yyyy" /
+                input#modified_at.form-control-plaintext readonly="" type="text" value=("#{date_in_au_form @lease_request.updated_at}") /
           .form-group.text-right
             - if params[:action] == "edit"
                 a.btn.btn-dark.px-3.ml-3 href=("#{listing_path(@lease_request.listing)}")  Show listing
