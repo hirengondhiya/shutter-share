@@ -27,8 +27,9 @@
                             .col-lg-2.text-right.align-self-end
                                 p = "#{time_ago_in_words listing.updated_at} ago"
                     .col-lg-12.text-right
-                        = link_to "Remove Listing", listing_path(listing), method: :delete, class: "border rounded btn btn-dark btn-sm px-3 ml-1"
-                        = link_to "Edit Listing", edit_listing_path(listing), class: "border rounded btn btn-dark btn-sm px-3 ml-1"
+                        - if listing.status == "active"
+                            = link_to "Remove Listing", listing_path(listing), method: :delete, class: "border rounded btn btn-dark btn-sm px-3 ml-1"
+                            = link_to "Edit Listing", edit_listing_path(listing), class: "border rounded btn btn-dark btn-sm px-3 ml-1"
                         = link_to "View Listing", listing_path(listing), class: "border rounded btn btn-dark btn-sm px-3 ml-1"
 - else
     .p-2.my-2

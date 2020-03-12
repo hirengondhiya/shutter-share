@@ -31,6 +31,9 @@ class ListingsController < ApplicationController
   
     # GET /listings/1/edit
     def edit
+      if (@listing.status != "active")
+        redirect_to listing_path(@listing), alert: "Can not edit #{@listing.status} listing."
+      end
     end
   
     # POST /listings
@@ -59,12 +62,16 @@ class ListingsController < ApplicationController
   
     # DELETE /listings/1
     def destroy
-      @listing.status = :deleted
-      if @listing.save
-        redirect_to @listing, notice: 'Listing was successfully disabled.'
+      if @listing.status != "deleted"
+        @listing.status = :deleted
+        if @listing.save
+          redirect_to @listing, notice: 'Listing was successfully disabled.'
+        else
+          redirect_to @listing, alert: 'Not able to disable the listing.'
+        end
       else
-        redirect_to @listing, alert: 'Not able to disable the listing.'
-      end  
+        redirect_to @listing, alert: 'Can not delete already deleted item.'
+      end
     end
 
     # DELETE /listings/1/image/1

@@ -1,8 +1,9 @@
 - if user_signed_in? && @listing.owned_by?(current_user)
   .container.mt-3
-    = link_to "Edit Listing", edit_listing_path(@listing), class: "border rounded border-light btn btn-dark px-3"
-    = link_to "Remove Listing", listing_path(@listing), method: :delete, class: "border rounded border-light btn btn-dark px-3 ml-2"
-    span.h5.ml-2 = "Status: #{@listing.status}"
+    - if @listing.status == "active"
+      = link_to "Edit Listing", edit_listing_path(@listing), class: "border rounded border-light btn btn-dark px-3"
+      = link_to "Remove Listing", listing_path(@listing), method: :delete, class: "border rounded border-light btn btn-dark px-3 ml-2"
+    span.h5.ml-2.text-capitalize = "Status: #{@listing.status}"
 .my-4
   .container
     .row
