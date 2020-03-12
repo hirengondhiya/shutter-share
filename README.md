@@ -167,22 +167,76 @@ R10	A link to your GitHub repository (repo). -->
             
  ([Back to Table of Contents](#table-of-contents))
 
-<!-- R13	Wire frames for your app -->
 
 ## Wireframes
-    1. **Home Page Not Signed in**
-    ![Home Page](./docs/mockups/Home_Listings-Notsignedin.png)
-    2. **Home Signed in**
-    ![Home Page]("./docs/mockups/Home_Listings - Signed in.png")
-    3. **Home Page Signed in - Expanded MyShutterShare Menu**
-    ![Home Page]("./docs/mockups/Home_Listings - Signed - MyShutterShare expanded.png")
-    4. **View Listing as Visitor**
-    ![Home Page]("./docs/mockups/View listing (Visitor).png")
-    4. **View Listing as Owner**
-    ![Home Page]("./docs/mockups/View listing (Owner).png")
-    5. **View My Listings**
-    ![Home Page](./docs/mockups/My listings.png)
 
+1. **Home Page Not Signed in**
+
+![Home Page](docs/mockups/Home_Listings-Notsignedin.png)
+
+2. **Home Signed in**
+
+![Home Page](./docs/mockups/Home_Listings-Signedin.png)
+
+3. **Home Page Signed in - Expanded MyShutterShare Menu**
+
+![Home Page](./docs/mockups/Home_Listings-Signed-MyShutterShareexpanded.png)
+
+4. **View Listing as Visitor**
+
+![Home Page](./docs/mockups/Viewlisting(Visitor).png)
+
+5. **View Listing as Owner**
+
+![Home Page](./docs/mockups/Viewlisting(Owner).png)
+
+6. **View My Listings**
+
+![Home Page](./docs/mockups/Mylistings.png)
+
+7. **Add Listing**
+
+![Add Listing](./docs/mockups/Addlisting.png)
+
+8. **Edit Listing**
+
+![Edit Listing](./docs/mockups/Editlisting.png)
+
+9. **Make Lease Request**
+
+![Make Lease Request](./docs/mockups/MakeLeaseRequest.png)
+
+10. **Edit Lease Request**
+
+![Edit Lease Request](./docs/mockups/EditLeaseRequest.png)
+
+11. **View Lease Request - Lease Requester**
+
+![View Lease Request](./docs/mockups/ViewLeaseRequest.png)
+
+12. **View Lease Request - Listing Owner**
+
+![View Lease Request](./docs/mockups/Accept_Rejectleaserequest.png)
+
+13. **View All Lease Requests - Sent**
+
+![Sent Lease Requests](./docs/mockups/Viewallleaserequestssent.png)
+
+14. **View All Lease Reqeuests - Received**
+
+![Received Lease Requests](./docs/mockups/Viewallleaserequestsreceived.png)
+
+15. **View My Profile**
+
+![View My Profile](./docs/mockups/Myprofile(View).png)
+
+16. **Edit My Profile**
+
+![Edit My Profile](./docs/mockups/Myprofile(Edit).png)
+
+17. **View Public Profile(My/Any other user)**
+
+![View Public Profile](./docs/mockups/Publicprofile.png)
 
 
  ([Back to Table of Contents](#table-of-contents))
