@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_04_101534) do
+ActiveRecord::Schema.define(version: 2020_03_10_014404) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,21 @@ ActiveRecord::Schema.define(version: 2020_03_04_101534) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "lease_requests", force: :cascade do |t|
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.integer "duration"
+    t.integer "rate"
+    t.integer "total"
+    t.bigint "profile_id"
+    t.bigint "listing_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "status", default: 0
+    t.index ["listing_id"], name: "index_lease_requests_on_listing_id"
+    t.index ["profile_id"], name: "index_lease_requests_on_profile_id"
   end
 
   create_table "listings", force: :cascade do |t|
@@ -73,6 +88,8 @@ ActiveRecord::Schema.define(version: 2020_03_04_101534) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "lease_requests", "listings"
+  add_foreign_key "lease_requests", "profiles"
   add_foreign_key "listings", "profiles"
   add_foreign_key "profiles", "users"
 end

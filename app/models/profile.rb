@@ -13,5 +13,26 @@ class Profile < ApplicationRecord
             }, on: :update
 
   has_one_attached :picture
-  has_many :listings
+  has_many :listings # created by the user
+  has_many :lease_requests # sent by the user
+
+  # returns true if the current profile sent at least one lease request for a given listing
+  def lease_request_sent_for_listing? listing_id
+    self.lease_requests.find_by(listing_id: listing_id) != nil
+  end
+
+  # returns an array of lease_requests sent by current profile for a given listing
+  def lease_requests_sent_for_listing listing_id
+    self.lease_requests.where(listing_id: listing_id)
+  end
+
+  # returns an array of lease_requests received on all listings
+  def lease_requests_received
+    LeaseRequest.where(listing_id: self.listings.pluck(:id))
+  end
+
+  # returns an array of lease_requests where current profile is either requester or listing owner
+  def transactions
+    LeaseRequest.where(profile_id: self.id).or(LeaseRequest.where(listing_id: self.listings.pluck(:id))).accepted.order(created_at: :desc)
+  end
 end

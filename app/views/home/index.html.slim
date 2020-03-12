@@ -1,1 +1,3 @@
-p Welcome to rails app
+.mt-4
+  - @listings.each do |listing|
+    = render partial: "partials/listing_clickable", locals: {listing: listing}

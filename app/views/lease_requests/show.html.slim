@@ -1,0 +1,67 @@
+.container.my-3 
+    h2 Lease request
+
+div
+  .container
+    .row
+      .col-md-6.col-lg-12
+        .row.mb-1.position-relative.pl-2
+          .col-lg-1.px-1
+            = render partial: "partials/profile_photo_50px", locals: {profile: @lease_request.profile}
+          .col.align-self-center.px-0.position-static
+            = link_to "", userprofile_public_path(@lease_request.profile), class: "stretched-link"
+            h5.text-dark = @lease_request.profile.name
+      .col-md-6.col-lg-3
+        p = render partial: "partials/status_h6", locals: {status: @lease_request.status}
+      .col-md-6.col-lg-9
+          p
+            - if @lease_request.status != "pending" && @lease_request.status != "expired"
+                span
+                    strong.text-capitalize = "#{@lease_request.status} on: "
+                span = date_in_au_form @lease_request.updated_at
+      .col-md-6.col-lg-3
+          p
+            span
+                strong.text-capitalize Pickup: 
+            span = date_in_au_form @lease_request.start_date
+      .col-md-6.col-lg-9
+          p
+            span
+                strong.text-capitalize Return: 
+            span = date_in_au_form @lease_request.end_date
+      .col-md-6.col-lg-3
+          p.text-capitalize
+            span
+                strong Duration: 
+            span = in_days @lease_request.duration
+      .col-md-6.col-lg-9
+          p
+            span
+                strong.text-capitalize Rate: 
+            span = dollar_pd @lease_request.rate
+      .col-md-6.col-lg-3
+          p
+            span
+                strong.text-capitalize Total Amount: 
+            span = prefix_s @lease_request.total
+      .col-md-6.col-lg-9
+          p
+      .col-md-6.col-lg-3
+          p
+            span
+                strong.text-capitalize Created: 
+            span = date_in_au_form @lease_request.created_at
+      .col-md-6.col-lg-9
+          p
+            span
+                strong.text-capitalize Edited: 
+            span = date_in_au_form @lease_request.updated_at
+      .col-md-6.col-lg-12.text-right
+        - if @lease_request.pending?
+            - if @lease_request.listing.owned_by? current_user
+                = link_to "Accept", accept_lease_request_path(@lease_request), method: :patch, class:"border rounded btn btn-dark btn-sm px-3 ml-1"
+                = link_to "Reject", reject_lease_request_path(@lease_request), method: :patch, class:"border rounded btn btn-dark btn-sm px-3 ml-1"
+            - else
+                = link_to "Cancel", lease_request_path(@lease_request), method: :delete, class:"border rounded btn btn-dark btn-sm px-3 ml-1"
+                = link_to "Edit", edit_lease_request_path(@lease_request), class:"border rounded btn btn-dark btn-sm px-3 ml-1"
+        = link_to "View Listing", listing_path(@lease_request.listing), class:"border rounded btn btn-dark btn-sm px-3 ml-1"
