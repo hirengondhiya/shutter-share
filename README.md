@@ -170,6 +170,20 @@ R10	A link to your GitHub repository (repo). -->
 <!-- R13	Wire frames for your app -->
 
 ## Wireframes
+    1. **Home Page Not Signed in**
+    ![Home Page]("./docs/mockups/Home_Listings-Notsignedin.png")
+    2. **Home Signed in**
+    ![Home Page]("./docs/mockups/Home_Listings - Signed in.png")
+    3. **Home Page Signed in - Expanded MyShutterShare Menu**
+    ![Home Page]("./docs/mockups/Home_Listings - Signed - MyShutterShare expanded.png")
+    4. **View Listing as Visitor**
+    ![Home Page]("./docs/mockups/View listing (Visitor).png")
+    4. **View Listing as Owner**
+    ![Home Page]("./docs/mockups/View listing (Owner).png")
+    5. **View My Listings**
+    ![Home Page](./docs/mockups/My listings.png)
+
+
 
  ([Back to Table of Contents](#table-of-contents))
 
