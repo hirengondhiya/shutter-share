@@ -1,4 +1,4 @@
-- if @listing.owned_by? current_user
+- if user_signed_in? && @listing.owned_by?(current_user)
   .container.mt-3
     = link_to "Edit Listing", edit_listing_path(@listing), class: "border rounded border-light btn btn-dark px-3"
     = link_to "Remove Listing", listing_path(@listing), method: :delete, class: "border rounded border-light btn btn-dark px-3 ml-2"
@@ -96,8 +96,8 @@
               span
                 strong Edited: 
               span = date_in_au_form @listing.updated_at
-                    - if !@listing.owned_by? current_user
-        - if !@listing.owned_by? current_user
+                    - if user_signed_in? && !@listing.owned_by?(current_user)
+        - if !@listing.owned_by?(current_user) || !user_signed_in?
           .row.my-3
             .col.text-center
               a.border.rounded.border-light.btn.btn-dark.px-5 href=("#{new_lease_request_path(@listing)}")  Lease Now
@@ -106,8 +106,8 @@
     .col-lg-12
       h2 = @listing.title
     .col
-      p = @listing.description
-    - if current_user.profile.lease_request_sent_for_listing? @listing
+      p = @listing.description      
+    - if user_signed_in? && current_user.profile.lease_request_sent_for_listing?(@listing)
       .col-lg-12
         h3 Requests Sent
       .col-lg-12
@@ -141,7 +141,7 @@
                 = link_to "Cancel", lease_request_path(lease_request), method: :delete, class: "border rounded btn btn-dark btn-sm px-3 ml-1"
                 = link_to "Edit", edit_lease_request_path(lease_request), class: "border rounded btn btn-dark btn-sm px-3 ml-1"
               = link_to "View", lease_request_path(lease_request), class: "border rounded btn btn-dark btn-sm px-3 ml-1"
-    - if (@listing.owned_by? current_user) && @listing.lease_requests.exists?
+    - if user_signed_in? && (@listing.owned_by?(current_user)) && @listing.lease_requests.exists?
       .col-lg-12
         h3 Requests Received
       .col-lg-12
