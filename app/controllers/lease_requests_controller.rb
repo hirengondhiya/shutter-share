@@ -5,6 +5,7 @@ class LeaseRequestsController < ApplicationController
     before_action :set_lease_request_for_requester, only: [:edit, :update, :destroy]
     before_action :set_lease_request_for_listing_owner, only: [:accept, :reject]
 
+    before_action :verify_listing, only: [:new]
     before_action :redirect_if_lease_request_not_found, except: [:new, :create, :sent, :received]
 
     # GET /leas_requests/:id
@@ -12,7 +13,7 @@ class LeaseRequestsController < ApplicationController
     end
 
     # GET /leas_requests/new/:listing_id
-    def new
+    def new        
         @lease_request = LeaseRequest.new(listing_id: params[:listing_id], profile_id: current_user.profile.id)
     end
 
@@ -129,6 +130,20 @@ class LeaseRequestsController < ApplicationController
             render_show_with_msg :notice, "Lease request  was #{status} successfully."
         else
             render_show_with_msg :alert, "Can not #{messages[status]} lease request due to application error."
+        end
+    end
+
+    def verify_listing
+        listing = nil
+        begin
+            listing = Listing.find(params[:listing_id])
+        rescue => exception
+            puts "Listing with id '#{params[:listing_id]}' not found."
+        ensure
+            puts "in ensure"
+            if (listing == nil || listing.status == "deleted" || listing.owned_by?(current_user))
+                redirect_to root_path, alert: "Can not make a lease request on non existent or your own listing."
+            end
         end
     end
 end
