@@ -73,6 +73,81 @@ R10	A link to your GitHub repository (repo). -->
 - ### Features
 - ### Sitemap
 - ### Screenshots
+
+
+1. **Home Page Not Signed in**
+
+![Home Page](./docs/screenshots/home_not_logged_in.png)
+
+2. **Home Signed in**
+
+![Home Page](./docs/screenshots/home_signed_in.png)
+
+3. **Home Page Signed in - Expanded MyShutterShare Menu**
+
+![Home Page](./docs/screenshots/home_my_shutter_share.png)
+
+4. **View Listing as Visitor**
+
+- When not signed in
+
+    ![Home Page](./docs/screenshots/view_listing_not_signed_in.png)
+- When signed in
+
+    ![Home Page](./docs/screenshots/view_listing_requester.png)
+
+5. **View Listing as Owner**
+
+![Home Page](./docs/screenshots/view_listing_owner.png)
+
+6. **View My Listings**
+
+![Home Page](./docs/screenshots/my_listings.png)
+
+7. **Add Listing**
+
+![Add Listing](./docs/screenshots/add_listing.png)
+
+8. **Edit Listing**
+
+![Edit Listing](./docs/screenshots/edit_listing.png)
+
+9. **Make Lease Request**
+
+![Make Lease Request](./docs/screenshots/lease_request_new.png)
+
+10. **Edit Lease Request**
+
+![Edit Lease Request](./docs/screenshots/lease_request_edit.png)
+
+11. **View Lease Request - Lease Requester**
+
+![View Lease Request](./docs/screenshots/lease_request_view_requester.png)
+
+12. **View Lease Request - Listing Owner**
+
+![View Lease Request](./docs/screenshots/lease_request_view_listing_owner.png)
+
+13. **View All Lease Requests - Sent**
+
+![Sent Lease Requests](./docs/screenshots/lease_requests_sent.png)
+
+14. **View All Lease Reqeuests - Received**
+
+![Received Lease Requests](./docs/screenshots/lease_requests_received.png)
+
+15. **View My Profile**
+
+![View My Profile](./docs/screenshots/my_profile_view.png)
+
+16. **Edit My Profile**
+
+![Edit My Profile](./docs/screenshots/my_profile_edit.png)
+
+17. **View Public Profile(My/Any other user)**
+
+![View Public Profile](./docs/screenshots/my_profile_public.png)
+
 - ### Target Audience
     Target audience of this app is any photographer who would like to rent someone else's photo gear and/or rent out their own photography equipment. This way the person renting someone's equipment can avoids costs associated with owning the gear that is not frequently used and the users renting out can have more value out of their investment. 
 - ### Tech stack
