@@ -25,5 +25,7 @@ Rails.application.routes.draw do
   patch '/lease_requests/:id/reject', to: 'lease_requests#reject', as: 'reject_lease_request'
 
   # when page not found
-  get "/:path", to: "home#not_found"
+  get '*all', to: 'home#not_found', constraints: lambda { |req|
+    req.path.exclude? 'rails/active_storage'
+  }
 end
