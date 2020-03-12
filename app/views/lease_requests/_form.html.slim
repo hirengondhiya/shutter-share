@@ -1,0 +1,48 @@
+.my-3
+  .container
+    .row
+      .col-md-12
+        = form_for @lease_request do |f|
+          = render partial: "/partials/error_messages", locals: {item: @lease_request, item_name: "listing" }
+          = f.hidden_field :listing_id
+          - if params[:action] == "edit"
+            #status.form-group
+                label for="status" 
+                    strong Status
+                input#status.form-control-plaintext readonly="" type="text" value=("#{@lease_request.status.capitalize}") /
+          .form-group
+            strong
+                = f.label :start_date
+            = f.date_field :start_date, class: "pl-2 form-control", id: "start_date"
+          .form-group
+            strong
+                = f.label :end_date
+            = f.date_field :end_date, class: "pl-2 form-control", id: "end_date"
+          .form-group
+            label for="duration" 
+              strong Duration
+            input#duration.form-control-plaintext readonly="" type="text" value=("x Days") /
+          .form-group
+            label for="rate" 
+              strong Listing Rate
+            input#rate.form-control-plaintext readonly="" type="text" value=("#{dollar_pd @lease_request.listing.rate}") /
+          .form-group
+            label for="total_amount" 
+              strong Total
+            input#total_amount.form-control-plaintext readonly="" type="text" value=("$ amount") /
+          - if params[:action] == "edit"
+            .form-group
+                label for="created_at" 
+                    strong Created
+                input#created_at.form-control-plaintext readonly="" type="text" value="dd/mm/yyyy" /
+            .form-group
+                label for="modified_at" 
+                    strong Last edited
+                input#modified_at.form-control-plaintext readonly="" type="text" value="dd/mm/yyyy" /
+          .form-group.text-right
+            - if params[:action] == "edit"
+                a.btn.btn-dark.px-3.ml-3 href=("#{listing_path(@lease_request.listing)}")  Show listing
+            = f.submit "Save", class: "button btn btn-dark px-5 ml-3"
+
+= javascript_include_tag "moment.min.js"
+= javascript_include_tag "lease_calc.js"
