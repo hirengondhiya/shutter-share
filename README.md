@@ -171,7 +171,7 @@ R10	A link to your GitHub repository (repo). -->
 
 ## Wireframes
     1. **Home Page Not Signed in**
-    ![Home Page]("./docs/mockups/Home_Listings-Notsignedin.png")
+    ![Home Page](./docs/mockups/Home_Listings-Notsignedin.png)
     2. **Home Signed in**
     ![Home Page]("./docs/mockups/Home_Listings - Signed in.png")
     3. **Home Page Signed in - Expanded MyShutterShare Menu**
