@@ -18,10 +18,11 @@ class LeaseRequestsController < ApplicationController
 
     # POST /leas_requests
     def create
-        @lease_request = LeaseRequest.new(lease_request_params_for :create, profile_id: current_user.profile.id)
+        @lease_request = LeaseRequest.new(lease_request_params_for(:create))
+        @lease_request.profile_id = current_user.profile.id
 
         if @lease_request.save
-            redirect_to lease_request_path(@lease_request), "Lease request created successfully."
+            redirect_to lease_request_path(@lease_request), notice: "Lease request created successfully."
         else
             render :new
         end
@@ -29,6 +30,9 @@ class LeaseRequestsController < ApplicationController
 
     # GET /leas_requests/:id/edit
     def edit
+        if @lease_request.status != "pending"
+            redirect_to lease_request_path(@lease_request), alert: "Can not edit #{@lease_request.status} lease request."
+        end
     end
 
     # PUT/PATCH /leas_requests/:id
