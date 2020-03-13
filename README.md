@@ -74,13 +74,13 @@ R10	A link to your GitHub repository (repo). -->
 
     The app has following features
     
-    1. User management
+    1. **User management**
         
         Ability to
         - Sign up
         - Sign in
         - Sign out
-    2. Profile management
+    2. **Profile management**
         
         Ability to
         - View profile
@@ -89,7 +89,7 @@ R10	A link to your GitHub repository (repo). -->
         - Remove image from signed in user's profile
         - View signed in user's public profile
         - View other user's public profile
-    3. Listing management
+    3. **Listing management**
         
         Ability to
         - Add listing
@@ -100,7 +100,7 @@ R10	A link to your GitHub repository (repo). -->
         - View all listings created by signed in user
         - Upload images to the listing
         - Remove images from the listing
-    3. Lease managemet
+    3. **Lease management**
 
         Ability to
         - Create a lease request on someone else's listing
