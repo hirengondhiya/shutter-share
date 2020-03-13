@@ -71,6 +71,47 @@ R10	A link to your GitHub repository (repo). -->
     The purpose of this app is to create a two sided online marketplace for photographer to rent out their camera gear. 
 
 - ### Features
+
+    The app has following features
+    
+    1. User management
+        
+        Ability to
+        - Sign up
+        - Sign in
+        - Sign out
+    2. Profile management
+        
+        Ability to
+        - View profile
+        - Edit profile
+        - Upload image to signed in user's profile
+        - Remove image from signed in user's profile
+        - View signed in user's public profile
+        - View other user's public profile
+    3. Listing management
+        
+        Ability to
+        - Add listing
+        - Edit listing
+        - Remove listing
+        - View listing
+        - View all other user's listings
+        - View all listings created by signed in user
+        - Upload images to the listing
+        - Remove images from the listing
+    3. Lease managemet
+
+        Ability to
+        - Create a lease request on someone else's listing
+        - Edit a lease request created by the signed in user
+        - Cancel a lease requet created by the signed in user
+        - Accept lease requests received on a items listed by signed in user
+        - Reject lease requests received on a items listed by signed in user
+        - View all lease requests created by a signed in user
+        - View all lease requests received on listings created by a signed in user
+
+- ### Fuctionality
 - ### Sitemap
 - ### Screenshots
 
