@@ -71,18 +71,24 @@ R10	A link to your GitHub repository (repo). -->
 
     The purpose of this app is to create a two sided online marketplace for photographer to rent out their camera gear. 
 
-- ### Features
+- ### Functionality and Features
 
-    The app has following features
+    The app provides following functionality.
     
     1. **User management**
+
+        User management functionality provides ability to identify the user who is accessing the app. The functionality is implemented through features such as Sign up, Sign in, and Sign out.
+
+        It is implemented through following features.
         
         Ability to
         - Sign up
         - Sign in
         - Sign out
     2. **Profile management**
-        
+
+        The profile management functionality help user provide more information about them selves and also find out more details about the listing creator or lease requester. It is implemented through following features.
+
         Ability to
         - View profile
         - Edit profile
@@ -91,6 +97,10 @@ R10	A link to your GitHub repository (repo). -->
         - View signed in user's public profile
         - View other user's public profile
     3. **Listing management**
+
+        The listing management functionality helps user to list their items and manage their listings so that it can be viewed and leased by other users.
+
+        Following Listing management features were implemented.
         
         Ability to
         - Add listing
@@ -103,6 +113,10 @@ R10	A link to your GitHub repository (repo). -->
         - Remove images from the listing
     3. **Lease management**
 
+        Lease management functionality provides ability to make requests on other user's listings and accept requests on listings of signed in user.
+
+        It is implemented using following features.
+
         Ability to
         - Create a lease request on someone else's listing
         - Edit a lease request created by the signed in user
@@ -112,7 +126,6 @@ R10	A link to your GitHub repository (repo). -->
         - View all lease requests created by a signed in user
         - View all lease requests received on listings created by a signed in user
 
-- ### Functionality
 - ### Sitemap
 
 ![sitemap](./docs/shutter-share-sitemap.svg)
