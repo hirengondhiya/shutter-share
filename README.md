@@ -415,6 +415,10 @@ other -->
 
 ## Database Schema
 
+Following image shows schema diagram of the various tables and their relationships.
+
+![Database Schema](./docs/dbeaver_database_schema.png)
+
 ([Back to Table of Contents](#table-of-contents))
 <!-- R20	Describe the way tasks are allocated and tracked in your project -->
 
