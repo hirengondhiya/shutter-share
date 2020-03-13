@@ -8,6 +8,7 @@ Completed as Term 2 Ruby on Rails assessment at [Coder Academy's](https://codera
 * [Description](#description)
     - [Purpose](#purpose)
     - [Features](#features)
+    - [Functionality](#functionality)
     - [Sitemap](#sitemap)
     - [Screenshots](#screenshots)
     - [Target Audience](#target-audience)
@@ -113,6 +114,9 @@ R10	A link to your GitHub repository (repo). -->
 
 - ### Fuctionality
 - ### Sitemap
+
+![sitemap](./docs/shutter-share-sitemap.svg)
+
 - ### Screenshots
 
 
