@@ -384,15 +384,15 @@ R10	A link to your GitHub repository (repo). -->
 
 The app uses following third party services,
 
-- Amazon S3: 
+- **Amazon S3**: 
     
     A cloud based blob storage service, provided by Amazon AWS, to hold all the images uploaded by the users of Shtter Share the app.
-- Amazon IAM: 
+- **Amazon IAM**: 
     
     AWS Identity and Access Management (IAM) service to manage access to AWS services and resources securely. 
     
     Used IAM, to create AWS user, and used permissions to allow and deny their access to Amazon S3.
-- Heroku: 
+- **Heroku**: 
 
     A cloud based hosting provider to be able to deploy the app on cloud and access it using the internet. 
 
