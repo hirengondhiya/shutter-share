@@ -1,5 +1,8 @@
 class Profile < ApplicationRecord
   belongs_to :user
+  has_one_attached :picture
+  has_many :listings # created by the user
+  has_many :lease_requests # sent by the user
 
   # below validations are forced only on profile update
   validates :name, presence: true, on: :update
@@ -12,9 +15,6 @@ class Profile < ApplicationRecord
               message: "Please enter a valid Australian mobile or landline number."
             }, on: :update
 
-  has_one_attached :picture
-  has_many :listings # created by the user
-  has_many :lease_requests # sent by the user
 
   # returns true if the current profile sent at least one lease request for a given listing
   def lease_request_sent_for_listing? listing_id
