@@ -112,7 +112,7 @@ R10	A link to your GitHub repository (repo). -->
         - View all lease requests created by a signed in user
         - View all lease requests received on listings created by a signed in user
 
-- ### Fuctionality
+- ### Functionality
 - ### Sitemap
 
 ![sitemap](./docs/shutter-share-sitemap.svg)
@@ -375,6 +375,61 @@ R10	A link to your GitHub repository (repo). -->
 <!-- R15	Explain the different high-level components (abstractions) in your app -->
 
 ## Components
+
+The Shutter Share App is built using Ruby on Rails framework which follows MVC design pattern.
+
+As per MVC the app is made of mainly three high level compents
+
+a. Model: 
+
+Models in MVC are the business entities that represent state of the application. It also implements the business logic.
+
+Shutter Share implements following model.
+1. User
+2. Profile
+3. Listing
+4. Lease Requests
+
+b. View:
+
+Views in MVC are the front end layer. It dictates how state of the app is represented to the user on their browser.
+
+Shutter Share has many different views which handles various user stories.
+
+For example
+- Sign In
+- Sign Up
+- Edit User Profile
+- View User Profile
+- View Public Profile etc...
+
+c. Controller:
+
+The controller binds models to views. It fetches data through models and provides it to views to render.
+
+Shutter Share app has following controllers
+1. Home
+2. Profiles
+3. Listings
+4. LeaseRequests
+
+Apart from rails components other components of the app are
+
+Devise: 
+
+Devise is a gem which provides authentication functionality.
+
+Amazon S3: 
+
+Amazon S3 is cloud storage service provided by AWS. Shutter Share uses S3 to store all user uploaded images (profile and listing).
+
+IAM: 
+
+IAM is Identity and Access Management service provided by AWS to control access on AWS resources. Shutter Share uses IAM to control access to S3 storage.
+
+Heroku: 
+
+Heroku is a cloud platform as a service supporting several programming languages. Shutter Share is deployed on Heroku platform so that it can be accessed through internet.
 
 ([Back to Table of Contents](#table-of-contents))
 
