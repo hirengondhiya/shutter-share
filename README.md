@@ -204,7 +204,7 @@ R10	A link to your GitHub repository (repo). -->
     * Bootstrap Studio
     * Heroku
     * Amazon S3
-    * 
+    * Devise (for authentication)
 
 ([Back to Table of Contents](#table-of-contents))
 <!-- R12	User stories for your app -->
