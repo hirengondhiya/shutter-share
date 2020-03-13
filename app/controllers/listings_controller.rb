@@ -1,7 +1,9 @@
 class ListingsController < ApplicationController
-    before_action :authenticate_user!, except: [:show, :index]
+    # force sign in for when user is trying to manipulate the listing
+    before_action :authenticate_user!, except: [:show]
 
-    before_action :set_listing, except: [:index, :new, :create, :show, :my]
+    # fetch listing based on various situations
+    before_action :set_listing, except: [:new, :create, :show, :my]
     before_action :set_listing_all, only: [:show]
     before_action :set_categories, only: [:new, :edit, :destroy_image]
   
@@ -12,7 +14,7 @@ class ListingsController < ApplicationController
   
     # GET /listings/1
     def show
-      # if listing is disabled  
+      # if listing is deleted  
       #     when user is not logged in, don't show it 
       #     when user is logged in, dont't show it if the current user is not listing owner
       if @listing.status == "deleted"  && (current_user == nil || !@listing.owned_by?(current_user))
@@ -22,6 +24,8 @@ class ListingsController < ApplicationController
   
     # GET /listings/new
     def new
+      # If profile is not upated
+      #   force profile update before listing can be created
       if helpers.current_user_profile_updated?
         @listing = Listing.new(profile_id: current_user.profile.id)
       else
@@ -31,6 +35,7 @@ class ListingsController < ApplicationController
   
     # GET /listings/1/edit
     def edit
+      # If listing is deleted don't allow edit
       if (@listing.status != "active")
         redirect_to listing_path(@listing), alert: "Can not edit #{@listing.status} listing."
       end
@@ -39,6 +44,7 @@ class ListingsController < ApplicationController
     # POST /listings
     def create
       @listing = Listing.new(listing_params)
+      # link listing to signed in user
       @listing.profile_id = current_user.profile.id
       if @listing.save
         redirect_to @listing, notice: 'Listing was successfully created.'
@@ -62,6 +68,7 @@ class ListingsController < ApplicationController
   
     # DELETE /listings/1
     def destroy
+      # don't allow deleted listings to be deleted again
       if @listing.status != "deleted"
         @listing.status = :deleted
         if @listing.save
@@ -87,13 +94,14 @@ class ListingsController < ApplicationController
       # To find listing from current user's listings
       def set_listing
         begin
+          # To make sure user updates their own listings only fetch listings related to signed in user's profile
           @listing = current_user.profile.listings.find(params[:id])          
         rescue => exception
           redirect_to root_path, alert: "Could not find the listing."
         end
       end
 
-      # To find listing irrespective of current user id
+      # To find listing irrespective of current user id for show action
       def set_listing_all
         begin
           @listing = Listing.find(params[:id])

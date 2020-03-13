@@ -1,7 +1,7 @@
 .container.my-3
   - if current_user.profile.lease_requests.exists?
     h2 Sent lease requests
-    - current_user.profile.lease_requests.each do |lease_request|
+    - @lease_requests.each do |lease_request|
         .p-2.my-2
             .container.bg-light.py-3
                 .row

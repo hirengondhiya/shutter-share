@@ -1,4 +1,10 @@
 class HomeController < ApplicationController
+
+  # If user is signed in
+  #   force profile update if it is not done
+  #   show fetch all the active listings that does not belong the signed in user
+  # Otherwise show all the active listings
+  # GET /
   def index
     if user_signed_in?
       if helpers.current_user_profile_updated?
@@ -11,6 +17,8 @@ class HomeController < ApplicationController
     end
   end
 
+  # catch all route action
+  # Send 404 status along with the view
   def not_found
     render 'not_found', status: 404
   end

@@ -6,17 +6,20 @@ class Listing < ApplicationRecord
   has_one_attached :image4
   has_one_attached :image5
   
+  # allowed status values
   enum status: {
     deleted: 0,
     active: 1
   }
 
+  # allowed status values
   enum category: {
     camera: 0,
     lens: 1,
     accessory: 2
   }
 
+  # helper to check if the listing is owned by signed in user
   def owned_by? user
     user && user.profile && user.profile.id == self.profile_id
   end

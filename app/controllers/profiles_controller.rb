@@ -1,6 +1,10 @@
 class ProfilesController < ApplicationController
+    # force sign in before any action on this controller
     before_action :authenticate_user!
+    
+    # in some situation force profile update if signed in user's profile is not upated
     before_action :force_update_current_user_profile, except: [:edit, :update]
+
     before_action :set_profile
 
     # GET /myprofile
@@ -10,6 +14,7 @@ class ProfilesController < ApplicationController
     # GET /myprofile/public
     # GET /userprofile/:id
     def public
+      fetch
       @active_listings = Listing.for_profile(@profile.id).active
     end
     

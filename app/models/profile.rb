@@ -32,6 +32,7 @@ class Profile < ApplicationRecord
   end
 
   # returns an array of lease_requests where current profile is either requester or listing owner
+  # the query works by fetching all the lease requests which belong the profile or the requests that belong to a listing which belongs the profile
   def transactions
     LeaseRequest.where(profile_id: self.id).or(LeaseRequest.where(listing_id: self.listings.pluck(:id))).accepted.order(created_at: :desc)
   end
