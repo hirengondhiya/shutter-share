@@ -423,14 +423,13 @@ Following describes the Rails Models and their relationships
 
     It has following associations.
 
-    `belongs_to :user`
-
-    `has_one_attached :picture`
-
-    `has_many :listings`
-
-    `has_many :lease_requests`
-
+    ```
+    belongs_to :user
+    has_one_attached :picture
+    has_many :listings
+    has_many :lease_requests
+    ```
+    
     A Profile belongs to a User that it represents in the database.
     A Profile has one Picture attached of the user.
     Profile has many Listings that are created by the user.
@@ -442,12 +441,14 @@ Following describes the Rails Models and their relationships
 
     It has following associations.
 
-    `belongs_to :profile
+    ```
+    belongs_to :profile
     has_one_attached :image1
     has_one_attached :image2
     has_one_attached :image3
     has_one_attached :image4
-    has_one_attached :image5`
+    has_one_attached :image5
+    ```
 
     A listing belongs to a Profile of the user that has listed the item.
     A listing has five images attached.
@@ -456,8 +457,10 @@ Following describes the Rails Models and their relationships
 
     LeaseRequest model stores details of the lease requests the user makes on other listings.
 
-    `belongs_to :profile
-    belongs_to :listing`
+    ```
+    belongs_to :profile
+    belongs_to :listing
+    ```
 
     A LeaseRequest belongs to a Profile of the user who makes the lease request.
     A LeaseRequest also belongs to a Listing that the user wants to lease.
