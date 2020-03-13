@@ -14,7 +14,7 @@ class ProfilesController < ApplicationController
     # GET /myprofile/public
     # GET /userprofile/:id
     def public
-      fetch
+      # fetch active listings belonging to current user
       @active_listings = Listing.for_profile(@profile.id).active
     end
     
