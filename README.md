@@ -596,6 +596,10 @@ Following image shows schema diagram of the various tables and their relationshi
 
 ## Project Management
 
+To manage the various tasks related to the project Trello board was used. 
 
+The project management was done using agile methodology. Initally the app started with a small prototype and then the app grew by add one feature at a time.
+
+The state of the Trello board at different stages can be viewed from [here](./docs/trello-tasks.md)
 
 ([Back to Table of Contents](#table-of-contents))
