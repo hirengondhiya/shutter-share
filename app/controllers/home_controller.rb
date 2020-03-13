@@ -11,6 +11,7 @@ class HomeController < ApplicationController
     end
   end
 
-  def not_found    
+  def not_found
+    render 'not_found', status: 404
   end
 end
